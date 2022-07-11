@@ -35,7 +35,7 @@ local timeSettings = false
 local resetConfig = false
 local messageSettings = false
 local version_n = 10
-local version = '1.4'
+local version = '1.3 part 1'
 local author = 'blackw1ndow'
 local dlstatus = require('moonloader').download_status
 local script_url = 'https://raw.githubusercontent.com/Xionerme/shapez/main/Shapez.lua'
@@ -132,7 +132,7 @@ local config = inicfg.load({
 
 function reqFunc(funcName, server) --own function handler
     if funcName == "updates" then --update request
-        local response = requests.get('https://pastebin.com/raw/GLEqAZ75')
+        local response = requests.get('https://pastebin.com/raw/2yxXqsey')
         updates = decodeJson(response.text)
         return updates
     elseif funcName == "gs" then
@@ -1030,6 +1030,16 @@ end
 
 function imgui.OnDrawFrame()
     if main_window_state.v then
+    if oldVersion then imgui.OpenPopup(u8'Уведомление о наличии новой версии') end
+        if (imgui.BeginPopupModal(u8'Уведомление о наличии новой версии', true, imgui.WindowFlags.AlwaysAutoResize + imgui.WindowFlags.NoMove + imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)) then
+            imgui.CenterText(u8'Вышла новая обновленная версия, рекомендуем обновиться.')
+            imgui.CenterText(u8'Текущая версия: '..version..'')
+            imgui.CenterText(u8'Новая версия: '..updates.info["version"]..'')
+            if updt ~= '' then imgui.CenterText(u8'Изменения: '..updates.info["version_info"]..'') end
+            imgui.UpdateButton(u8'Обновить')
+            if imgui.Button(u8'Потом', imgui.SameLine()) then imgui.CloseCurrentPopup() oldVersion = false if config.messages.chat then msg("Вы всегда можете обновиться в последней вкладке", "chat") elseif config.messages.console then msg("Вы всегда можете обновиться в последней вкладке", "console") elseif config.messages.silent then end end
+        imgui.EndPopup()
+    end
     if messageSettings then imgui.OpenPopup(u8'Настройки сообщений в чат или консоль') end
         if (imgui.BeginPopupModal(u8'Настройки сообщений в чат или консоль', true, imgui.WindowFlags.AlwaysAutoResize + imgui.WindowFlags.NoMove + imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)) then
             if imgui.Checkbox(u8'Включить все сообщения в чат', imgui.ImBool(config.messages.chat)) then config.messages.console = false config.messages.silent = false config.messages.chat = not config.messages.chat end
@@ -1326,6 +1336,14 @@ function imgui.OnDrawFrame()
                 imgui.Text(u8'Неверных кодов: '..config.captcha.ncode)
                 imgui.Text(u8'Рекорд ввода капчи: '..config.captcha.record)
                 imgui.Text('')
+                if tonumber(updates.info["version_n"]) > version_n then
+                    imgui.SameLine(432)
+                    if imgui.Button(fa.ICON_FA_CLOUD_DOWNLOAD_ALT..'') then
+                        update_state = true
+                        if config.messages.chat then msg("Обновляемся, подождите", "chat") elseif config.messages.console then msg("Обновляемся, подождите", "console") elseif config.messages.silent then end
+                    end
+                    imgui.Hint('updaaaaaaate', u8'Кнопка для обновления скрипта, если вы этого ещё не сделали.')
+                end
                 if imgui.Button(fa.ICON_FA_POWER_OFF ..'') then thisScript():unload() end
                 imgui.Hint('offnitvar', u8'Выключить скрипт.')
                 if imgui.Button(fa.ICON_FA_TRASH ..'', imgui.SameLine()) then
@@ -2044,6 +2062,11 @@ function checkBeforeLoad()
     reqFunc("updates")
     ip, port = sampGetCurrentServerAddress()
     if thisScript().filename ~= 'Shapez.lua' then os.rename(getGameDirectory() .. "/moonloader/" .. thisScript().filename, getGameDirectory() .. "/moonloader/Shapez.lua") end
+    if tonumber(updates.info["version_n"]) > version_n then
+        oldVersion = true
+        if config.messages.chat then msg("Есть обновление! Версия: " .. updates.info["version"], "chat") elseif config.messages.console then msg("Есть обновление! Версия: " .. updates.info["version"], "console") elseif config.messages.silent then end
+        if config.messages.chat then msg("Что бы узнать больше, откройте меню скрипта", "chat") elseif config.messages.console then msg("Что бы узнать больше, откройте меню скрипта", "console") elseif config.messages.silent then end
+    end
     if ip == '176.32.39.165' then
         arenaMode = true
         supremeMode = false
@@ -2517,4 +2540,3 @@ end
 --69 64 69 20 6e 61 78 79 69 20
 
 --л эфшлц чъб
-
