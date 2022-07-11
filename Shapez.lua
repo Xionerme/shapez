@@ -132,7 +132,7 @@ local config = inicfg.load({
 
 function reqFunc(funcName, server) --own function handler
     if funcName == "updates" then --update request
-        local response = requests.get('https://pastebin.com/raw/2yxXqsey')
+        local response = requests.get('https://pastebin.com/raw/GLEqAZ75')
         updates = decodeJson(response.text)
         return updates
     elseif funcName == "gs" then
