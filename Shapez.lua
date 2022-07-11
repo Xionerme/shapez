@@ -35,18 +35,18 @@ local timeSettings = false
 local resetConfig = false
 local messageSettings = false
 local version_n = 10
-local version = '1.3 part 1'
+local version = '1.4'
 local author = 'blackw1ndow'
 local dlstatus = require('moonloader').download_status
-local script_url = 'https://raw.githubusercontent.com/blackw1ndow/shapez/main/Shapez.lua'
+local script_url = 'https://raw.githubusercontent.com/Xionerme/shapez/main/Shapez.lua'
 script_name('Shapez '..version..'')
 local encoding = require 'encoding'
 encoding.default = 'CP1251'
 u8 = encoding.UTF8
 
-local modes = {u8'Обычная', u8'Новая', u8'Серверная'}
-local keyboard_modes = {u8'Только цифры', u8'Компактные цифры', u8'Только NumPad'}
-local tmodes = {u8'Фиолетовая', u8'Бирюзовая', u8'Красная', u8'Салатовая', u8'Синяя', u8'Серая', u8'Кастомная [beta]'}
+local modes = {u8'ГЋГЎГ»Г·Г­Г Гї', u8'ГЌГ®ГўГ Гї', u8'Г‘ГҐГ°ГўГҐГ°Г­Г Гї'}
+local keyboard_modes = {u8'Г’Г®Г«ГјГЄГ® Г¶ГЁГґГ°Г»', u8'ГЉГ®Г¬ГЇГ ГЄГІГ­Г»ГҐ Г¶ГЁГґГ°Г»', u8'Г’Г®Г«ГјГЄГ® NumPad'}
+local tmodes = {u8'Г”ГЁГ®Г«ГҐГІГ®ГўГ Гї', u8'ГЃГЁГ°ГѕГ§Г®ГўГ Гї', u8'ГЉГ°Г Г±Г­Г Гї', u8'Г‘Г Г«Г ГІГ®ГўГ Гї', u8'Г‘ГЁГ­ГїГї', u8'Г‘ГҐГ°Г Гї', u8'ГЉГ Г±ГІГ®Г¬Г­Г Гї [beta]'}
 
 local config = inicfg.load({
     main = {
@@ -1030,29 +1030,29 @@ end
 
 function imgui.OnDrawFrame()
     if main_window_state.v then
-    if oldVersion then imgui.OpenPopup(u8'Уведомление о наличии новой версии') end
-        if (imgui.BeginPopupModal(u8'Уведомление о наличии новой версии', true, imgui.WindowFlags.AlwaysAutoResize + imgui.WindowFlags.NoMove + imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)) then
-            imgui.CenterText(u8'Вышла новая обновленная версия, рекомендуем обновиться.')
-            imgui.CenterText(u8'Текущая версия: '..version..'')
-            imgui.CenterText(u8'Новая версия: '..updates.info["version"]..'')
-            if updt ~= '' then imgui.CenterText(u8'Изменения: '..updates.info["version_info"]..'') end
-            imgui.UpdateButton(u8'Обновить')
-            if imgui.Button(u8'Потом', imgui.SameLine()) then imgui.CloseCurrentPopup() oldVersion = false if config.messages.chat then msg("Вы всегда можете обновиться в последней вкладке", "chat") elseif config.messages.console then msg("Вы всегда можете обновиться в последней вкладке", "console") elseif config.messages.silent then end end
+    if oldVersion then imgui.OpenPopup(u8'Г“ГўГҐГ¤Г®Г¬Г«ГҐГ­ГЁГҐ Г® Г­Г Г«ГЁГ·ГЁГЁ Г­Г®ГўГ®Г© ГўГҐГ°Г±ГЁГЁ') end
+        if (imgui.BeginPopupModal(u8'Г“ГўГҐГ¤Г®Г¬Г«ГҐГ­ГЁГҐ Г® Г­Г Г«ГЁГ·ГЁГЁ Г­Г®ГўГ®Г© ГўГҐГ°Г±ГЁГЁ', true, imgui.WindowFlags.AlwaysAutoResize + imgui.WindowFlags.NoMove + imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)) then
+            imgui.CenterText(u8'Г‚Г»ГёГ«Г  Г­Г®ГўГ Гї Г®ГЎГ­Г®ГўГ«ГҐГ­Г­Г Гї ГўГҐГ°Г±ГЁГї, Г°ГҐГЄГ®Г¬ГҐГ­Г¤ГіГҐГ¬ Г®ГЎГ­Г®ГўГЁГІГјГ±Гї.')
+            imgui.CenterText(u8'Г’ГҐГЄГіГ№Г Гї ГўГҐГ°Г±ГЁГї: '..version..'')
+            imgui.CenterText(u8'ГЌГ®ГўГ Гї ГўГҐГ°Г±ГЁГї: '..updates.info["version"]..'')
+            if updt ~= '' then imgui.CenterText(u8'Г€Г§Г¬ГҐГ­ГҐГ­ГЁГї: '..updates.info["version_info"]..'') end
+            imgui.UpdateButton(u8'ГЋГЎГ­Г®ГўГЁГІГј')
+            if imgui.Button(u8'ГЏГ®ГІГ®Г¬', imgui.SameLine()) then imgui.CloseCurrentPopup() oldVersion = false if config.messages.chat then msg("Г‚Г» ГўГ±ГҐГЈГ¤Г  Г¬Г®Г¦ГҐГІГҐ Г®ГЎГ­Г®ГўГЁГІГјГ±Гї Гў ГЇГ®Г±Г«ГҐГ¤Г­ГҐГ© ГўГЄГ«Г Г¤ГЄГҐ", "chat") elseif config.messages.console then msg("Г‚Г» ГўГ±ГҐГЈГ¤Г  Г¬Г®Г¦ГҐГІГҐ Г®ГЎГ­Г®ГўГЁГІГјГ±Гї Гў ГЇГ®Г±Г«ГҐГ¤Г­ГҐГ© ГўГЄГ«Г Г¤ГЄГҐ", "console") elseif config.messages.silent then end end
         imgui.EndPopup()
     end
-    if messageSettings then imgui.OpenPopup(u8'Настройки сообщений в чат или консоль') end
-        if (imgui.BeginPopupModal(u8'Настройки сообщений в чат или консоль', true, imgui.WindowFlags.AlwaysAutoResize + imgui.WindowFlags.NoMove + imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)) then
-            if imgui.Checkbox(u8'Включить все сообщения в чат', imgui.ImBool(config.messages.chat)) then config.messages.console = false config.messages.silent = false config.messages.chat = not config.messages.chat end
-            if imgui.Checkbox(u8'Вывод всех сообщения в консоль', imgui.ImBool(config.messages.console)) then config.messages.chat = false config.messages.silent = false config.messages.console = not config.messages.console end
-            if imgui.Checkbox(u8'Выключить любые сообщения от скрипта', imgui.ImBool(config.messages.silent)) then config.messages.chat = false config.messages.console = false  config.messages.silent = not config.messages.silent end
+    if messageSettings then imgui.OpenPopup(u8'ГЌГ Г±ГІГ°Г®Г©ГЄГЁ Г±Г®Г®ГЎГ№ГҐГ­ГЁГ© Гў Г·Г ГІ ГЁГ«ГЁ ГЄГ®Г­Г±Г®Г«Гј') end
+        if (imgui.BeginPopupModal(u8'ГЌГ Г±ГІГ°Г®Г©ГЄГЁ Г±Г®Г®ГЎГ№ГҐГ­ГЁГ© Гў Г·Г ГІ ГЁГ«ГЁ ГЄГ®Г­Г±Г®Г«Гј', true, imgui.WindowFlags.AlwaysAutoResize + imgui.WindowFlags.NoMove + imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)) then
+            if imgui.Checkbox(u8'Г‚ГЄГ«ГѕГ·ГЁГІГј ГўГ±ГҐ Г±Г®Г®ГЎГ№ГҐГ­ГЁГї Гў Г·Г ГІ', imgui.ImBool(config.messages.chat)) then config.messages.console = false config.messages.silent = false config.messages.chat = not config.messages.chat end
+            if imgui.Checkbox(u8'Г‚Г»ГўГ®Г¤ ГўГ±ГҐГµ Г±Г®Г®ГЎГ№ГҐГ­ГЁГї Гў ГЄГ®Г­Г±Г®Г«Гј', imgui.ImBool(config.messages.console)) then config.messages.chat = false config.messages.silent = false config.messages.console = not config.messages.console end
+            if imgui.Checkbox(u8'Г‚Г»ГЄГ«ГѕГ·ГЁГІГј Г«ГѕГЎГ»ГҐ Г±Г®Г®ГЎГ№ГҐГ­ГЁГї Г®ГІ Г±ГЄГ°ГЁГЇГІГ ', imgui.ImBool(config.messages.silent)) then config.messages.chat = false config.messages.console = false  config.messages.silent = not config.messages.silent end
             imgui.Separator()
             imgui.Separator()
-            imgui.CenterButton(u8'Закрыть')
+            imgui.CenterButton(u8'Г‡Г ГЄГ°Г»ГІГј')
         imgui.EndPopup()
     end
-    if timeSettings then imgui.OpenPopup(u8'Настройки показа времени') end
-        if (imgui.BeginPopupModal(u8'Настройки показа времени', true, imgui.WindowFlags.AlwaysAutoResize + imgui.WindowFlags.NoMove + imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)) then
-            imgui.Text(u8'Шрифт')
+    if timeSettings then imgui.OpenPopup(u8'ГЌГ Г±ГІГ°Г®Г©ГЄГЁ ГЇГ®ГЄГ Г§Г  ГўГ°ГҐГ¬ГҐГ­ГЁ') end
+        if (imgui.BeginPopupModal(u8'ГЌГ Г±ГІГ°Г®Г©ГЄГЁ ГЇГ®ГЄГ Г§Г  ГўГ°ГҐГ¬ГҐГ­ГЁ', true, imgui.WindowFlags.AlwaysAutoResize + imgui.WindowFlags.NoMove + imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)) then
+            imgui.Text(u8'ГГ°ГЁГґГІ')
             imgui.PushItemWidth(170)
             imgui.SameLine()
                 if imgui.InputText('##11', fontTimeinput) then
@@ -1060,7 +1060,7 @@ function imgui.OnDrawFrame()
                     renderTimeFont = renderCreateFont(config.servertime.timeFont, config.servertime.timeSize, config.servertime.timeStyle)
                 end
                 imgui.PopItemWidth()
-                imgui.Text(u8'Стиль')
+                imgui.Text(u8'Г‘ГІГЁГ«Гј')
                 imgui.PushItemWidth(90)
                 imgui.SameLine()
                 if imgui.InputInt('##12', styleTimeinput, 0, 0) then
@@ -1069,7 +1069,7 @@ function imgui.OnDrawFrame()
                     inicfg.save(config, "Shapez")
                 end
                 imgui.PopItemWidth()
-                imgui.Text(u8'Размер')
+                imgui.Text(u8'ГђГ Г§Г¬ГҐГ°')
                 imgui.PushItemWidth(90)
                 imgui.SameLine()
                 if imgui.InputInt('##13', sizeTimeinput, 0, 0) then
@@ -1077,7 +1077,7 @@ function imgui.OnDrawFrame()
                     renderTimeFont = renderCreateFont(config.servertime.timeFont, config.servertime.timeSize, config.servertime.timeStyle)
                     inicfg.save(config, "Shapez")
                 end
-                if imgui.ColorEdit3(u8'Цвет времени', timeColour, imgui.ColorEditFlags.NoInputs) then
+                if imgui.ColorEdit3(u8'Г–ГўГҐГІ ГўГ°ГҐГ¬ГҐГ­ГЁ', timeColour, imgui.ColorEditFlags.NoInputs) then
                     config.servertime.timeR = timeColour.v[1]*255
                     config.servertime.timeG = timeColour.v[2]*255
                     config.servertime.timeB = timeColour.v[3]*255
@@ -1085,10 +1085,10 @@ function imgui.OnDrawFrame()
                     inicfg.save(config, "Shapez")
                 end
                 imgui.PopItemWidth()
-                imgui.CenterButton(u8'Изменить расположение')
+                imgui.CenterButton(u8'Г€Г§Г¬ГҐГ­ГЁГІГј Г°Г Г±ГЇГ®Г«Г®Г¦ГҐГ­ГЁГҐ')
                 if styleTimeinput.v < 0 then styleTimeinput.v = 0 end
                 if sizeTimeinput.v < 0 then sizeTimeinput.v = 0 end
-                imgui.CenterButton(u8'Закрыть')
+                imgui.CenterButton(u8'Г‡Г ГЄГ°Г»ГІГј')
         imgui.EndPopup()
     end
         imgui.SetNextWindowSize(imgui.ImVec2(480, 360), imgui.Cond.FirstUseEver)
@@ -1104,36 +1104,36 @@ function imgui.OnDrawFrame()
             imgui.EndChild()
             imgui.BeginChild('bot', imgui.ImVec2(465, 226), true)
             if menu == 1 then
-                if imgui.Checkbox(u8'Таймер ввода капчи', imgui.ImBool(config.main.timer)) then config.main.timer = not config.main.timer end
-                if imgui.Checkbox(u8'Время ввода в строке с покупкой дома/бизнеса', imgui.ImBool(config.main.jt)) then config.main.jt = not config.main.jt end
-                if imgui.Checkbox(u8'Перекраска сообщений о покупке дома/бизнеса', imgui.ImBool(config.main.recolor)) then config.main.recolor = not config.main.recolor end
-                if imgui.Checkbox(u8'Сообщение в чат после покупки имущества', imgui.ImBool(config.main.msg)) then config.main.msg = not config.main.msg end
+                if imgui.Checkbox(u8'Г’Г Г©Г¬ГҐГ° ГўГўГ®Г¤Г  ГЄГ ГЇГ·ГЁ', imgui.ImBool(config.main.timer)) then config.main.timer = not config.main.timer end
+                if imgui.Checkbox(u8'Г‚Г°ГҐГ¬Гї ГўГўГ®Г¤Г  Гў Г±ГІГ°Г®ГЄГҐ Г± ГЇГ®ГЄГіГЇГЄГ®Г© Г¤Г®Г¬Г /ГЎГЁГ§Г­ГҐГ±Г ', imgui.ImBool(config.main.jt)) then config.main.jt = not config.main.jt end
+                if imgui.Checkbox(u8'ГЏГҐГ°ГҐГЄГ°Г Г±ГЄГ  Г±Г®Г®ГЎГ№ГҐГ­ГЁГ© Г® ГЇГ®ГЄГіГЇГЄГҐ Г¤Г®Г¬Г /ГЎГЁГ§Г­ГҐГ±Г ', imgui.ImBool(config.main.recolor)) then config.main.recolor = not config.main.recolor end
+                if imgui.Checkbox(u8'Г‘Г®Г®ГЎГ№ГҐГ­ГЁГҐ Гў Г·Г ГІ ГЇГ®Г±Г«ГҐ ГЇГ®ГЄГіГЇГЄГЁ ГЁГ¬ГіГ№ГҐГ±ГІГўГ ', imgui.ImBool(config.main.msg)) then config.main.msg = not config.main.msg end
 
                 if config.main.msg then
                         if imgui.InputText('##1', buffer) then
                             config.main.text = string.format('%s', tostring(buffer.v))
                         end
-                    if imgui.Checkbox(u8'Добавлять время во фразу', imgui.ImBool(config.main.texttime)) then config.main.texttime = not config.main.texttime end
-                    if imgui.Checkbox(u8'Добавлять капчу во фразу', imgui.ImBool(config.main.textcap)) then config.main.textcap = not config.main.textcap end
+                    if imgui.Checkbox(u8'Г„Г®ГЎГ ГўГ«ГїГІГј ГўГ°ГҐГ¬Гї ГўГ® ГґГ°Г Г§Гі', imgui.ImBool(config.main.texttime)) then config.main.texttime = not config.main.texttime end
+                    if imgui.Checkbox(u8'Г„Г®ГЎГ ГўГ«ГїГІГј ГЄГ ГЇГ·Гі ГўГ® ГґГ°Г Г§Гі', imgui.ImBool(config.main.textcap)) then config.main.textcap = not config.main.textcap end
                 end
-                if imgui.Checkbox(u8'Укороченные команды поиска домов/бизнесов', imgui.ImBool(config.main.shorten)) then config.main.shorten = not config.main.shorten end
+                if imgui.Checkbox(u8'Г“ГЄГ®Г°Г®Г·ГҐГ­Г­Г»ГҐ ГЄГ®Г¬Г Г­Г¤Г» ГЇГ®ГЁГ±ГЄГ  Г¤Г®Г¬Г®Гў/ГЎГЁГ§Г­ГҐГ±Г®Гў', imgui.ImBool(config.main.shorten)) then config.main.shorten = not config.main.shorten end
 
                 if config.main.shorten then
                     imgui.SameLine()
                     if imgui.Button(fa.ICON_FA_TRASH ..u8'') then
-                        if config.messages.chat then msg("Укороченные команды удалены!", "chat") elseif config.messages.console then msg("Укороченные команды удалены!", "console") elseif config.messages.silent then end
+                        if config.messages.chat then msg("Г“ГЄГ®Г°Г®Г·ГҐГ­Г­Г»ГҐ ГЄГ®Г¬Г Г­Г¤Г» ГіГ¤Г Г«ГҐГ­Г»!", "chat") elseif config.messages.console then msg("Г“ГЄГ®Г°Г®Г·ГҐГ­Г­Г»ГҐ ГЄГ®Г¬Г Г­Г¤Г» ГіГ¤Г Г«ГҐГ­Г»!", "console") elseif config.messages.silent then end
                         sampUnregisterChatCommand(config.commands.fhc)
                         sampUnregisterChatCommand(config.commands.fbc)
                     end
-                    imgui.Hint('ukkd', u8'Удалить укороченные команды.')
+                    imgui.Hint('ukkd', u8'Г“Г¤Г Г«ГЁГІГј ГіГЄГ®Г°Г®Г·ГҐГ­Г­Г»ГҐ ГЄГ®Г¬Г Г­Г¤Г».')
                     imgui.SameLine()
                     if imgui.Button(fa.ICON_FA_SAVE ..u8'') then
-                        if config.messages.chat then msg("Укороченные команды добавлены!", "chat") elseif config.messages.console then msg("Укороченные команды добавлены!", "console") elseif config.messages.silent then end
+                        if config.messages.chat then msg("Г“ГЄГ®Г°Г®Г·ГҐГ­Г­Г»ГҐ ГЄГ®Г¬Г Г­Г¤Г» Г¤Г®ГЎГ ГўГ«ГҐГ­Г»!", "chat") elseif config.messages.console then msg("Г“ГЄГ®Г°Г®Г·ГҐГ­Г­Г»ГҐ ГЄГ®Г¬Г Г­Г¤Г» Г¤Г®ГЎГ ГўГ«ГҐГ­Г»!", "console") elseif config.messages.silent then end
                         sampRegisterChatCommand(config.commands.fhc, function(num) sampSendChat('/findihouse '..num) end)
                         sampRegisterChatCommand(config.commands.fbc, function(num) sampSendChat('/findibiz '..num) end)
                         inicfg.save(config, "Shapez")
                     end
-                    imgui.Hint('gfdgrgdfgdfgdfg', u8'Активировать и сохранить укороченные команды.')
+                    imgui.Hint('gfdgrgdfgdfgdfg', u8'ГЂГЄГІГЁГўГЁГ°Г®ГўГ ГІГј ГЁ Г±Г®ГµГ°Г Г­ГЁГІГј ГіГЄГ®Г°Г®Г·ГҐГ­Г­Г»ГҐ ГЄГ®Г¬Г Г­Г¤Г».')
                     imgui.PushItemWidth(80)
                     if imgui.InputText('##7', fhb) then
                         config.commands.fhc = string.format('%s', tostring(fhb.v))
@@ -1148,7 +1148,7 @@ function imgui.OnDrawFrame()
                 end
             end
             if menu == 2 then
-                if imgui.Checkbox(u8'Тренировка капчи', imgui.ImBool(config.main.captrain)) then config.main.captrain = not config.main.captrain end
+                if imgui.Checkbox(u8'Г’Г°ГҐГ­ГЁГ°Г®ГўГЄГ  ГЄГ ГЇГ·ГЁ', imgui.ImBool(config.main.captrain)) then config.main.captrain = not config.main.captrain end
                 if config.main.captrain then
                     imgui.SameLine()
                     ia.HotKey('##captrain', trainkey, {}, 100)
@@ -1162,7 +1162,7 @@ function imgui.OnDrawFrame()
                     end
                     imgui.PopItemWidth()
                 end
-                if (arenaMode or supremeMode) then if imgui.Checkbox(u8'Антирванка', imgui.ImBool(config.main.ar)) then config.main.ar = not config.main.ar end
+                if (arenaMode or supremeMode) then if imgui.Checkbox(u8'ГЂГ­ГІГЁГ°ГўГ Г­ГЄГ ', imgui.ImBool(config.main.ar)) then config.main.ar = not config.main.ar end
                 if config.main.ar then
                     imgui.SameLine()
                     imgui.PushItemWidth(110)
@@ -1172,7 +1172,7 @@ function imgui.OnDrawFrame()
                     imgui.PopItemWidth()
                 end
                 end
-                if (arenaMode or supremeMode) then if imgui.Checkbox(u8'Удаление людей', imgui.ImBool(config.main.delp)) then config.main.delp = not config.main.delp end
+                if (arenaMode or supremeMode) then if imgui.Checkbox(u8'Г“Г¤Г Г«ГҐГ­ГЁГҐ Г«ГѕГ¤ГҐГ©', imgui.ImBool(config.main.delp)) then config.main.delp = not config.main.delp end
                 if config.main.delp then
                     imgui.SameLine()
                     imgui.PushItemWidth(90)
@@ -1182,10 +1182,10 @@ function imgui.OnDrawFrame()
                     imgui.PopItemWidth()
                     imgui.SameLine()
                     if imgui.Checkbox(u8'', imgui.ImBool(config.main.newdelp)) then config.main.newdelp = not config.main.newdelp end
-                    imgui.Hint('delplayersss', u8'Не рекомендуем включать при активности на сервере, только при ловле или прокачке аккаунта в афк!\nУдаляет людей до тех пор, пока вы не отключите удаление командой /'..config.commands.delpc..'')
+                    imgui.Hint('delplayersss', u8'ГЌГҐ Г°ГҐГЄГ®Г¬ГҐГ­Г¤ГіГҐГ¬ ГўГЄГ«ГѕГ·Г ГІГј ГЇГ°ГЁ Г ГЄГІГЁГўГ­Г®Г±ГІГЁ Г­Г  Г±ГҐГ°ГўГҐГ°ГҐ, ГІГ®Г«ГјГЄГ® ГЇГ°ГЁ Г«Г®ГўГ«ГҐ ГЁГ«ГЁ ГЇГ°Г®ГЄГ Г·ГЄГҐ Г ГЄГЄГ ГіГ­ГІГ  Гў Г ГґГЄ!\nГ“Г¤Г Г«ГїГҐГІ Г«ГѕГ¤ГҐГ© Г¤Г® ГІГҐГµ ГЇГ®Г°, ГЇГ®ГЄГ  ГўГ» Г­ГҐ Г®ГІГЄГ«ГѕГ·ГЁГІГҐ ГіГ¤Г Г«ГҐГ­ГЁГҐ ГЄГ®Г¬Г Г­Г¤Г®Г© /'..config.commands.delpc..'')
                 end
                 end
-                if (arenaMode or supremeMode) then if imgui.Checkbox(u8'Удаление машин', imgui.ImBool(config.main.delc)) then config.main.delc = not config.main.delc end
+                if (arenaMode or supremeMode) then if imgui.Checkbox(u8'Г“Г¤Г Г«ГҐГ­ГЁГҐ Г¬Г ГёГЁГ­', imgui.ImBool(config.main.delc)) then config.main.delc = not config.main.delc end
                 if config.main.delc then
                     imgui.SameLine()
                     imgui.PushItemWidth(90)
@@ -1195,10 +1195,10 @@ function imgui.OnDrawFrame()
                     imgui.PopItemWidth()
                     imgui.SameLine()
                     if imgui.Checkbox(' ', imgui.ImBool(config.main.newdelc)) then config.main.newdelc = not config.main.newdelc end
-                    imgui.Hint('delcarssss', u8'Не рекомендуем включать при активности на сервере, только при ловле или прокачке аккаунта в афк!\nУдаляет машины до тех пор, пока вы не отключите удаление командой /'..config.commands.delcc..'')
+                    imgui.Hint('delcarssss', u8'ГЌГҐ Г°ГҐГЄГ®Г¬ГҐГ­Г¤ГіГҐГ¬ ГўГЄГ«ГѕГ·Г ГІГј ГЇГ°ГЁ Г ГЄГІГЁГўГ­Г®Г±ГІГЁ Г­Г  Г±ГҐГ°ГўГҐГ°ГҐ, ГІГ®Г«ГјГЄГ® ГЇГ°ГЁ Г«Г®ГўГ«ГҐ ГЁГ«ГЁ ГЇГ°Г®ГЄГ Г·ГЄГҐ Г ГЄГЄГ ГіГ­ГІГ  Гў Г ГґГЄ!\nГ“Г¤Г Г«ГїГҐГІ Г¬Г ГёГЁГ­Г» Г¤Г® ГІГҐГµ ГЇГ®Г°, ГЇГ®ГЄГ  ГўГ» Г­ГҐ Г®ГІГЄГ«ГѕГ·ГЁГІГҐ ГіГ¤Г Г«ГҐГ­ГЁГҐ ГЄГ®Г¬Г Г­Г¤Г®Г© /'..config.commands.delcc..'')
                 end
                 end
-                if imgui.Checkbox(u8'Изменение прорисовки', imgui.ImBool(config.main.fd)) then config.main.fd = not config.main.fd end
+                if imgui.Checkbox(u8'Г€Г§Г¬ГҐГ­ГҐГ­ГЁГҐ ГЇГ°Г®Г°ГЁГ±Г®ГўГЄГЁ', imgui.ImBool(config.main.fd)) then config.main.fd = not config.main.fd end
                 if config.main.fd then
                     imgui.SameLine()
                     imgui.PushItemWidth(90)
@@ -1213,14 +1213,14 @@ function imgui.OnDrawFrame()
                     end
                     imgui.PopItemWidth()
                     imgui.SameLine()
-                    if imgui.Button(fa.ICON_FA_TRASH ..u8'') then sampUnregisterChatCommand(config.commands.fdc) if config.messages.chat then msg("Команда удалена", "chat") elseif config.messages.console then msg("Команда удалена", "console") elseif config.messages.silent then end end
-                    imgui.Hint('sdasdasdwd', u8'Удалить команду для смены прорисовки.')
+                    if imgui.Button(fa.ICON_FA_TRASH ..u8'') then sampUnregisterChatCommand(config.commands.fdc) if config.messages.chat then msg("ГЉГ®Г¬Г Г­Г¤Г  ГіГ¤Г Г«ГҐГ­Г ", "chat") elseif config.messages.console then msg("ГЉГ®Г¬Г Г­Г¤Г  ГіГ¤Г Г«ГҐГ­Г ", "console") elseif config.messages.silent then end end
+                    imgui.Hint('sdasdasdwd', u8'Г“Г¤Г Г«ГЁГІГј ГЄГ®Г¬Г Г­Г¤Гі Г¤Г«Гї Г±Г¬ГҐГ­Г» ГЇГ°Г®Г°ГЁГ±Г®ГўГЄГЁ.')
                     imgui.SameLine()
-                    if imgui.Button(fa.ICON_FA_SAVE ..u8'') then inicfg.save(config, "Shapez") fogdist() if config.messages.chat then msg("Команда сохранена, а прорисовка применена", "chat") elseif config.messages.console then msg("Команда сохранена, а прорисовка применена", "console") elseif config.messages.silent then end end
-                    imgui.Hint('fgeyhg5ry456456', u8'Активировать и сохранить команду для смены прорисовки.')
-                    imgui.Hint('sfekfsjkdf8934', u8'Бета-версия. Работает только на самсунге, нужна семья. Команды: /ch h (для домов), /ch b (для бизнесов)')
+                    if imgui.Button(fa.ICON_FA_SAVE ..u8'') then inicfg.save(config, "Shapez") fogdist() if config.messages.chat then msg("ГЉГ®Г¬Г Г­Г¤Г  Г±Г®ГµГ°Г Г­ГҐГ­Г , Г  ГЇГ°Г®Г°ГЁГ±Г®ГўГЄГ  ГЇГ°ГЁГ¬ГҐГ­ГҐГ­Г ", "chat") elseif config.messages.console then msg("ГЉГ®Г¬Г Г­Г¤Г  Г±Г®ГµГ°Г Г­ГҐГ­Г , Г  ГЇГ°Г®Г°ГЁГ±Г®ГўГЄГ  ГЇГ°ГЁГ¬ГҐГ­ГҐГ­Г ", "console") elseif config.messages.silent then end end
+                    imgui.Hint('fgeyhg5ry456456', u8'ГЂГЄГІГЁГўГЁГ°Г®ГўГ ГІГј ГЁ Г±Г®ГµГ°Г Г­ГЁГІГј ГЄГ®Г¬Г Г­Г¤Гі Г¤Г«Гї Г±Г¬ГҐГ­Г» ГЇГ°Г®Г°ГЁГ±Г®ГўГЄГЁ.')
+                    imgui.Hint('sfekfsjkdf8934', u8'ГЃГҐГІГ -ГўГҐГ°Г±ГЁГї. ГђГ ГЎГ®ГІГ ГҐГІ ГІГ®Г«ГјГЄГ® Г­Г  Г±Г Г¬Г±ГіГ­ГЈГҐ, Г­ГіГ¦Г­Г  Г±ГҐГ¬ГјГї. ГЉГ®Г¬Г Г­Г¤Г»: /ch h (Г¤Г«Гї Г¤Г®Г¬Г®Гў), /ch b (Г¤Г«Гї ГЎГЁГ§Г­ГҐГ±Г®Гў)')
                 end
-                if imgui.Checkbox(u8'Быстрое открытие риэлторки', imgui.ImBool(config.main.fastrielt)) then config.main.fastrielt = not config.main.fastrielt end
+                if imgui.Checkbox(u8'ГЃГ»Г±ГІГ°Г®ГҐ Г®ГІГЄГ°Г»ГІГЁГҐ Г°ГЁГЅГ«ГІГ®Г°ГЄГЁ', imgui.ImBool(config.main.fastrielt)) then config.main.fastrielt = not config.main.fastrielt end
                 if config.main.fastrielt then
                     imgui.PushItemWidth(80)
                     imgui.SameLine()
@@ -1230,13 +1230,13 @@ function imgui.OnDrawFrame()
                     imgui.PopItemWidth()
                     imgui.SameLine()
                     if imgui.Button(fa.ICON_FA_TRASH ..u8'') then
-                        if config.messages.chat then msg("Команда быстрого открытия риэлторки удалена!", "chat") elseif config.messages.console then msg("Команда быстрого открытия риэлторки удалена!", "console") elseif config.messages.silent then end
+                        if config.messages.chat then msg("ГЉГ®Г¬Г Г­Г¤Г  ГЎГ»Г±ГІГ°Г®ГЈГ® Г®ГІГЄГ°Г»ГІГЁГї Г°ГЁГЅГ«ГІГ®Г°ГЄГЁ ГіГ¤Г Г«ГҐГ­Г !", "chat") elseif config.messages.console then msg("ГЉГ®Г¬Г Г­Г¤Г  ГЎГ»Г±ГІГ°Г®ГЈГ® Г®ГІГЄГ°Г»ГІГЁГї Г°ГЁГЅГ«ГІГ®Г°ГЄГЁ ГіГ¤Г Г«ГҐГ­Г !", "console") elseif config.messages.silent then end
                         sampUnregisterChatCommand(config.commands.frc)
                     end
-                    imgui.Hint('dfgrgsdfsdfaawedf', u8'Удалить команду быстрого открытия риэлторки.')
+                    imgui.Hint('dfgrgsdfsdfaawedf', u8'Г“Г¤Г Г«ГЁГІГј ГЄГ®Г¬Г Г­Г¤Гі ГЎГ»Г±ГІГ°Г®ГЈГ® Г®ГІГЄГ°Г»ГІГЁГї Г°ГЁГЅГ«ГІГ®Г°ГЄГЁ.')
                     imgui.SameLine()
                     if imgui.Button(fa.ICON_FA_SAVE ..u8'') then
-                        if config.messages.chat then msg("Команда быстрого открытия риэлторки создана и сохранена!", "chat") elseif config.messages.console then msg("Команда быстрого открытия риэлторки создана и сохранена!", "console") elseif config.messages.silent then end
+                        if config.messages.chat then msg("ГЉГ®Г¬Г Г­Г¤Г  ГЎГ»Г±ГІГ°Г®ГЈГ® Г®ГІГЄГ°Г»ГІГЁГї Г°ГЁГЅГ«ГІГ®Г°ГЄГЁ Г±Г®Г§Г¤Г Г­Г  ГЁ Г±Г®ГµГ°Г Г­ГҐГ­Г !", "chat") elseif config.messages.console then msg("ГЉГ®Г¬Г Г­Г¤Г  ГЎГ»Г±ГІГ°Г®ГЈГ® Г®ГІГЄГ°Г»ГІГЁГї Г°ГЁГЅГ«ГІГ®Г°ГЄГЁ Г±Г®Г§Г¤Г Г­Г  ГЁ Г±Г®ГµГ°Г Г­ГҐГ­Г !", "console") elseif config.messages.silent then end
                         sampRegisterChatCommand(config.commands.frc, function(arg)
                             hob = arg..""
                                 lua_thread.create(function()
@@ -1253,7 +1253,7 @@ function imgui.OnDrawFrame()
                             end)
                         inicfg.save(config, "Shapez")
                     end
-                    imgui.Hint('fgdrgdfgdfgdrgdgdgdfgdfg', u8'Активировать и сохранить команду быстрого открытия риэлторки.')
+                    imgui.Hint('fgdrgdfgdfgdrgdgdgdfgdfg', u8'ГЂГЄГІГЁГўГЁГ°Г®ГўГ ГІГј ГЁ Г±Г®ГµГ°Г Г­ГЁГІГј ГЄГ®Г¬Г Г­Г¤Гі ГЎГ»Г±ГІГ°Г®ГЈГ® Г®ГІГЄГ°Г»ГІГЁГї Г°ГЁГЅГ«ГІГ®Г°ГЄГЁ.')
                 end
                 imgui.Checkbox(u8'KeyBoard', keyboard)
                 if config.keyboard.active then
@@ -1265,87 +1265,87 @@ function imgui.OnDrawFrame()
                         elseif keyboard_type.v == 2 then config.keyboard.mode = 2
                     end
                     imgui.PopItemWidth()
-                    if imgui.Checkbox(u8'Перемещать клавиатуру', imgui.ImBool(config.keyboard.move)) then config.keyboard.move = not config.keyboard.move end
+                    if imgui.Checkbox(u8'ГЏГҐГ°ГҐГ¬ГҐГ№Г ГІГј ГЄГ«Г ГўГЁГ ГІГіГ°Гі', imgui.ImBool(config.keyboard.move)) then config.keyboard.move = not config.keyboard.move end
                 end
-                if imgui.Checkbox(u8'Время на экране', imgui.ImBool(config.servertime.stime)) then config.servertime.stime = not config.servertime.stime end
+                if imgui.Checkbox(u8'Г‚Г°ГҐГ¬Гї Г­Г  ГЅГЄГ°Г Г­ГҐ', imgui.ImBool(config.servertime.stime)) then config.servertime.stime = not config.servertime.stime end
                 if config.servertime.stime then
                     imgui.SameLine()
                     if imgui.Button(fa.ICON_FA_COGS ..u8'') then timeSettings = true end
                 end
             end
             if menu == 3 then
-                if imgui.Checkbox(u8'Бинд на быстрый вызор NRG-500', imgui.ImBool(config.binds.fastnrg)) then config.binds.fastnrg = not config.binds.fastnrg end
+                if imgui.Checkbox(u8'ГЃГЁГ­Г¤ Г­Г  ГЎГ»Г±ГІГ°Г»Г© ГўГ»Г§Г®Г° NRG-500', imgui.ImBool(config.binds.fastnrg)) then config.binds.fastnrg = not config.binds.fastnrg end
                 if config.binds.fastnrg then
                 imgui.SameLine()
                 ia.HotKey('##nrgkey', nrgkey, {}, 100)
                 end
-                if imgui.Checkbox(u8'Бинд на быстрый спавн', imgui.ImBool(config.binds.fastspawn)) then config.binds.fastspawn = not config.binds.fastspawn end
+                if imgui.Checkbox(u8'ГЃГЁГ­Г¤ Г­Г  ГЎГ»Г±ГІГ°Г»Г© Г±ГЇГ ГўГ­', imgui.ImBool(config.binds.fastspawn)) then config.binds.fastspawn = not config.binds.fastspawn end
                 if config.binds.fastspawn then
                 imgui.SameLine()
                 ia.HotKey('##spawnkey', spawnkey, {}, 100)
                 end
-                if imgui.Checkbox(u8'Бинд на быстрое пополнение 100 хп', imgui.ImBool(config.binds.fasthp)) then config.binds.fasthp = not config.binds.fasthp end
+                if imgui.Checkbox(u8'ГЃГЁГ­Г¤ Г­Г  ГЎГ»Г±ГІГ°Г®ГҐ ГЇГ®ГЇГ®Г«Г­ГҐГ­ГЁГҐ 100 ГµГЇ', imgui.ImBool(config.binds.fasthp)) then config.binds.fasthp = not config.binds.fasthp end
                 if config.binds.fasthp then
                 imgui.SameLine()
                 ia.HotKey('##hpkey', hpkey, {}, 100)
                 end
-                if imgui.Checkbox(u8'Бинд на быстрый флип', imgui.ImBool(config.binds.fastflip)) then config.binds.fastflip = not config.binds.fastflip end
+                if imgui.Checkbox(u8'ГЃГЁГ­Г¤ Г­Г  ГЎГ»Г±ГІГ°Г»Г© ГґГ«ГЁГЇ', imgui.ImBool(config.binds.fastflip)) then config.binds.fastflip = not config.binds.fastflip end
                 if config.binds.fastflip then
                 imgui.SameLine()
                 ia.HotKey('##flipkey', flipkey, {}, 100)
                 end
-                if imgui.Checkbox(u8'Бинд на быструю заправку', imgui.ImBool(config.binds.fastfill)) then config.binds.fastfill = not config.binds.fastfill end
+                if imgui.Checkbox(u8'ГЃГЁГ­Г¤ Г­Г  ГЎГ»Г±ГІГ°ГіГѕ Г§Г ГЇГ°Г ГўГЄГі', imgui.ImBool(config.binds.fastfill)) then config.binds.fastfill = not config.binds.fastfill end
                 if config.binds.fastfill then
                 imgui.SameLine()
                 ia.HotKey('##fillkey', fillkey, {}, 100)
                 end
-                if imgui.Checkbox(u8'Бинд на быструю проверку слетов в /sletmenu', imgui.ImBool(config.binds.fastslet)) then config.binds.fastslet = not config.binds.fastslet end
+                if imgui.Checkbox(u8'ГЃГЁГ­Г¤ Г­Г  ГЎГ»Г±ГІГ°ГіГѕ ГЇГ°Г®ГўГҐГ°ГЄГі Г±Г«ГҐГІГ®Гў Гў /sletmenu', imgui.ImBool(config.binds.fastslet)) then config.binds.fastslet = not config.binds.fastslet end
                 if config.binds.fastslet then
                 imgui.SameLine()
                 ia.HotKey('##sletkey', sletkey, {}, 100)
                 end
-                if arenaMode then if imgui.Checkbox(u8'Бинд на быструю телепортацию своего авто к себе', imgui.ImBool(config.binds.tpcartome)) then config.binds.tpcartome = not config.binds.tpcartome end end
+                if arenaMode then if imgui.Checkbox(u8'ГЃГЁГ­Г¤ Г­Г  ГЎГ»Г±ГІГ°ГіГѕ ГІГҐГ«ГҐГЇГ®Г°ГІГ Г¶ГЁГѕ Г±ГўГ®ГҐГЈГ® Г ГўГІГ® ГЄ Г±ГҐГЎГҐ', imgui.ImBool(config.binds.tpcartome)) then config.binds.tpcartome = not config.binds.tpcartome end end
                 if config.binds.tpcartome and arenaMode then
                 imgui.SameLine()
                 ia.HotKey('##tpcartomekey', tpcartomekey, {}, 100)
                 end
                 imgui.Separator()
-                imgui.Text(u8'Подсказка: випменю открывайте через /vip.\n/vipmenu отключено мною, что бы работали бинды. \nЗато там есть крутая менюшка, удобная...')
+                imgui.Text(u8'ГЏГ®Г¤Г±ГЄГ Г§ГЄГ : ГўГЁГЇГ¬ГҐГ­Гѕ Г®ГІГЄГ°Г»ГўГ Г©ГІГҐ Г·ГҐГ°ГҐГ§ /vip.\n/vipmenu Г®ГІГЄГ«ГѕГ·ГҐГ­Г® Г¬Г­Г®Гѕ, Г·ГІГ® ГЎГ» Г°Г ГЎГ®ГІГ Г«ГЁ ГЎГЁГ­Г¤Г». \nГ‡Г ГІГ® ГІГ Г¬ ГҐГ±ГІГј ГЄГ°ГіГІГ Гї Г¬ГҐГ­ГѕГёГЄГ , ГіГ¤Г®ГЎГ­Г Гї...')
             end
             if menu == 4 then
                 imgui.PushItemWidth(110)
-                if imgui.Combo(u8'Темы скрипта', temki, tmodes) then styles[temki.v]() if config.main.customlogo then if supremeMode then reqFunc("createlogo", "supreme") elseif arenaMode then reqFunc("createlogo", "arena") elseif arizona then reqFunc("createlogo", "arizona") end end end
+                if imgui.Combo(u8'Г’ГҐГ¬Г» Г±ГЄГ°ГЁГЇГІГ ', temki, tmodes) then styles[temki.v]() if config.main.customlogo then if supremeMode then reqFunc("createlogo", "supreme") elseif arenaMode then reqFunc("createlogo", "arena") elseif arizona then reqFunc("createlogo", "arizona") end end end
                 imgui.PopItemWidth()
                 imgui.SameLine(436)
                 if imgui.Button(fa.ICON_FA_COMMENT ..'') then messageSettings = true end
-                imgui.Hint('banana', u8'Настройка всех сообщений в чат или консоль.')
-                if imgui.Checkbox(u8'Другие цвета в логотипе', imgui.ImBool(config.main.customlogo)) then config.main.customlogo = not config.main.customlogo end
+                imgui.Hint('banana', u8'ГЌГ Г±ГІГ°Г®Г©ГЄГ  ГўГ±ГҐГµ Г±Г®Г®ГЎГ№ГҐГ­ГЁГ© Гў Г·Г ГІ ГЁГ«ГЁ ГЄГ®Г­Г±Г®Г«Гј.')
+                if imgui.Checkbox(u8'Г„Г°ГіГЈГЁГҐ Г¶ГўГҐГІГ  Гў Г«Г®ГЈГ®ГІГЁГЇГҐ', imgui.ImBool(config.main.customlogo)) then config.main.customlogo = not config.main.customlogo end
                 if config.main.customlogo then
                     if imgui.Button(fa.ICON_FA_TRASH ..u8'', imgui.SameLine()) then if supremeMode then reqFunc("deletelogo", "supreme") elseif arenaMode then reqFunc("deletelogo", "arena") elseif arizona then reqFunc("deletelogo", "arizona") end end
-                    imgui.Hint('udaliloga', u8'Кнопка для удаления логотипа.')
+                    imgui.Hint('udaliloga', u8'ГЉГ­Г®ГЇГЄГ  Г¤Г«Гї ГіГ¤Г Г«ГҐГ­ГЁГї Г«Г®ГЈГ®ГІГЁГЇГ .')
                 end
-                if imgui.Checkbox(u8'Анти-подкид лицензий, трейда и прочего', imgui.ImBool(config.main.antipodkid)) then config.main.antipodkid = not config.main.antipodkid end
+                if imgui.Checkbox(u8'ГЂГ­ГІГЁ-ГЇГ®Г¤ГЄГЁГ¤ Г«ГЁГ¶ГҐГ­Г§ГЁГ©, ГІГ°ГҐГ©Г¤Г  ГЁ ГЇГ°Г®Г·ГҐГЈГ®', imgui.ImBool(config.main.antipodkid)) then config.main.antipodkid = not config.main.antipodkid end
                 if config.main.antipodkid then
                     if imgui.Checkbox(u8' ', imgui.ImBool(config.main.pribil), imgui.SameLine()) then config.main.pribil = not config.main.pribil end
-                    imgui.Hint('MNEPOKAZALIPRIBIL`', u8'Уведомление о том, что вам показали паспорт/лицензии/прибыль бизнеса и т.п.')
+                    imgui.Hint('MNEPOKAZALIPRIBIL`', u8'Г“ГўГҐГ¤Г®Г¬Г«ГҐГ­ГЁГҐ Г® ГІГ®Г¬, Г·ГІГ® ГўГ Г¬ ГЇГ®ГЄГ Г§Г Г«ГЁ ГЇГ Г±ГЇГ®Г°ГІ/Г«ГЁГ¶ГҐГ­Г§ГЁГЁ/ГЇГ°ГЁГЎГ»Г«Гј ГЎГЁГ§Г­ГҐГ±Г  ГЁ ГІ.ГЇ.')
                 end
                 imgui.Separator()
-                imgui.Text(u8'Информация по вводу капчи:')
-                imgui.Text(u8'Всего капч введено: '..config.captcha.vcode + config.captcha.ncode)
-                imgui.Text(u8'Верных кодов: '..config.captcha.vcode)
-                imgui.Text(u8'Неверных кодов: '..config.captcha.ncode)
-                imgui.Text(u8'Рекорд ввода капчи: '..config.captcha.record)
+                imgui.Text(u8'Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї ГЇГ® ГўГўГ®Г¤Гі ГЄГ ГЇГ·ГЁ:')
+                imgui.Text(u8'Г‚Г±ГҐГЈГ® ГЄГ ГЇГ· ГўГўГҐГ¤ГҐГ­Г®: '..config.captcha.vcode + config.captcha.ncode)
+                imgui.Text(u8'Г‚ГҐГ°Г­Г»Гµ ГЄГ®Г¤Г®Гў: '..config.captcha.vcode)
+                imgui.Text(u8'ГЌГҐГўГҐГ°Г­Г»Гµ ГЄГ®Г¤Г®Гў: '..config.captcha.ncode)
+                imgui.Text(u8'ГђГҐГЄГ®Г°Г¤ ГўГўГ®Г¤Г  ГЄГ ГЇГ·ГЁ: '..config.captcha.record)
                 imgui.Text('')
                 if tonumber(updates.info["version_n"]) > version_n then
                     imgui.SameLine(432)
                     if imgui.Button(fa.ICON_FA_CLOUD_DOWNLOAD_ALT..'') then
                         update_state = true
-                        if config.messages.chat then msg("Обновляемся, подождите", "chat") elseif config.messages.console then msg("Обновляемся, подождите", "console") elseif config.messages.silent then end
+                        if config.messages.chat then msg("ГЋГЎГ­Г®ГўГ«ГїГҐГ¬Г±Гї, ГЇГ®Г¤Г®Г¦Г¤ГЁГІГҐ", "chat") elseif config.messages.console then msg("ГЋГЎГ­Г®ГўГ«ГїГҐГ¬Г±Гї, ГЇГ®Г¤Г®Г¦Г¤ГЁГІГҐ", "console") elseif config.messages.silent then end
                     end
-                    imgui.Hint('updaaaaaaate', u8'Кнопка для обновления скрипта, если вы этого ещё не сделали.')
+                    imgui.Hint('updaaaaaaate', u8'ГЉГ­Г®ГЇГЄГ  Г¤Г«Гї Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГї Г±ГЄГ°ГЁГЇГІГ , ГҐГ±Г«ГЁ ГўГ» ГЅГІГ®ГЈГ® ГҐГ№Вё Г­ГҐ Г±Г¤ГҐГ«Г Г«ГЁ.')
                 end
                 if imgui.Button(fa.ICON_FA_POWER_OFF ..'') then thisScript():unload() end
-                imgui.Hint('offnitvar', u8'Выключить скрипт.')
+                imgui.Hint('offnitvar', u8'Г‚Г»ГЄГ«ГѕГ·ГЁГІГј Г±ГЄГ°ГЁГЇГІ.')
                 if imgui.Button(fa.ICON_FA_TRASH ..'', imgui.SameLine()) then
                     if doesFileExist(thisScript().filename)then
                         os.remove(thisScript().filename)
@@ -1355,72 +1355,72 @@ function imgui.OnDrawFrame()
                     end
                     thisScript():unload()
                 end
-                imgui.Hint('nenadadyadya', u8'Удалить скрипт.')
+                imgui.Hint('nenadadyadya', u8'Г“Г¤Г Г«ГЁГІГј Г±ГЄГ°ГЁГЇГІ.')
                 if imgui.Button(fa.ICON_FA_SYNC ..'', imgui.SameLine()) then thisScript():reload() end
-                imgui.Hint('rebut', u8'Перезагрузить скрипт.')
-                if imgui.Button(fa.ICON_FA_SAVE ..'', imgui.SameLine()) then if config.messages.chat then msg("Настройки успешно сохранены", "chat") elseif config.messages.console then msg("Настройки успешно сохранены", "console") elseif config.messages.silent then end inicfg.save(config, "Shapez")  end
-                imgui.Hint('sohrnastr', u8'Сохранить настройки.')
+                imgui.Hint('rebut', u8'ГЏГҐГ°ГҐГ§Г ГЈГ°ГіГ§ГЁГІГј Г±ГЄГ°ГЁГЇГІ.')
+                if imgui.Button(fa.ICON_FA_SAVE ..'', imgui.SameLine()) then if config.messages.chat then msg("ГЌГ Г±ГІГ°Г®Г©ГЄГЁ ГіГ±ГЇГҐГёГ­Г® Г±Г®ГµГ°Г Г­ГҐГ­Г»", "chat") elseif config.messages.console then msg("ГЌГ Г±ГІГ°Г®Г©ГЄГЁ ГіГ±ГЇГҐГёГ­Г® Г±Г®ГµГ°Г Г­ГҐГ­Г»", "console") elseif config.messages.silent then end inicfg.save(config, "Shapez")  end
+                imgui.Hint('sohrnastr', u8'Г‘Г®ГµГ°Г Г­ГЁГІГј Г­Г Г±ГІГ°Г®Г©ГЄГЁ.')
                 if imgui.Button(fa.ICON_FA_FILE_CONTRACT ..'', imgui.SameLine()) then
                     if doesFileExist('moonloader\\config\\Shapez.ini') then
                         resetConfig = true
                         thisScript():reload()
                     end
-                    msg("Настройки успешно сброшены", "chat")
+                    msg("ГЌГ Г±ГІГ°Г®Г©ГЄГЁ ГіГ±ГЇГҐГёГ­Г® Г±ГЎГ°Г®ГёГҐГ­Г»", "chat")
                 end
-                imgui.Hint('stoknastr', u8'Вернуть скрипт к стандартным настройкам.')
+                imgui.Hint('stoknastr', u8'Г‚ГҐГ°Г­ГіГІГј Г±ГЄГ°ГЁГЇГІ ГЄ Г±ГІГ Г­Г¤Г Г°ГІГ­Г»Г¬ Г­Г Г±ГІГ°Г®Г©ГЄГ Г¬.')
             end
             imgui.EndChild()
         imgui.End()
     end
     if vip_window_state.v then
-        imgui.Begin(u8'Новое вип-меню', vip_window_state, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
+        imgui.Begin(u8'ГЌГ®ГўГ®ГҐ ГўГЁГЇ-Г¬ГҐГ­Гѕ', vip_window_state, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
         if supremeMode then
         imgui.SetNextWindowSize(imgui.ImVec2(370, 400), imgui.Cond.FirstUseEver)
         imgui.SetWindowPos(imgui.ImVec2(mX / 3, mY / 3), imgui.Cond.FirstUseEver)
         imgui.BeginChild('vip', imgui.ImVec2(370, 365), true)
         imgui.BeginChild('supreme', imgui.ImVec2(355, 130), true)
-        if imgui.Button(u8'Пополнить здоровье (раз в 5 минут)') then reqFunc("fasthp", "supreme") end
-        if imgui.Button(u8'Изменить префикс в вип-чате') then reqFunc("prefix", "supreme") end
-        if imgui.Button(u8'Заправить транспорт, в котором я нахожусь') then reqFunc("fastfill", "supreme") end
-        if imgui.Button(u8'Флипнуть транспорт, в котором я нахожусь') then reqFunc("fastflip", "supreme") end
-        if imgui.Button(u8'Выдать себе NRG-500') then reqFunc("fastnrg", "supreme") end
+        if imgui.Button(u8'ГЏГ®ГЇГ®Г«Г­ГЁГІГј Г§Г¤Г®Г°Г®ГўГјГҐ (Г°Г Г§ Гў 5 Г¬ГЁГ­ГіГІ)') then reqFunc("fasthp", "supreme") end
+        if imgui.Button(u8'Г€Г§Г¬ГҐГ­ГЁГІГј ГЇГ°ГҐГґГЁГЄГ± Гў ГўГЁГЇ-Г·Г ГІГҐ') then reqFunc("prefix", "supreme") end
+        if imgui.Button(u8'Г‡Г ГЇГ°Г ГўГЁГІГј ГІГ°Г Г­Г±ГЇГ®Г°ГІ, Гў ГЄГ®ГІГ®Г°Г®Г¬ Гї Г­Г ГµГ®Г¦ГіГ±Гј') then reqFunc("fastfill", "supreme") end
+        if imgui.Button(u8'Г”Г«ГЁГЇГ­ГіГІГј ГІГ°Г Г­Г±ГЇГ®Г°ГІ, Гў ГЄГ®ГІГ®Г°Г®Г¬ Гї Г­Г ГµГ®Г¦ГіГ±Гј') then reqFunc("fastflip", "supreme") end
+        if imgui.Button(u8'Г‚Г»Г¤Г ГІГј Г±ГҐГЎГҐ NRG-500') then reqFunc("fastnrg", "supreme") end
         imgui.EndChild()
         imgui.BeginChild('solution', imgui.ImVec2(355, 60), true)
-        if imgui.Button(u8'Получить рандомный предмет  (1 раз в 3 часа)') then reqFunc("items", "supreme") end
-        if imgui.Button(u8'Заспавнить себя') then reqFunc("fastspawn", "supreme") end
+        if imgui.Button(u8'ГЏГ®Г«ГіГ·ГЁГІГј Г°Г Г­Г¤Г®Г¬Г­Г»Г© ГЇГ°ГҐГ¤Г¬ГҐГІ  (1 Г°Г Г§ Гў 3 Г·Г Г±Г )') then reqFunc("items", "supreme") end
+        if imgui.Button(u8'Г‡Г Г±ГЇГ ГўГ­ГЁГІГј Г±ГҐГЎГї') then reqFunc("fastspawn", "supreme") end
         imgui.EndChild()
         imgui.BeginChild('grandrase', imgui.ImVec2(355, 60), true)
-        if imgui.Button(u8'Получить/Продлить ADDVIP') then reqFunc("addvip", "supreme") end
-        if imgui.Button(u8'Выдать себе любой новый автомобиль') then reqFunc("newcars", "supreme") end
+        if imgui.Button(u8'ГЏГ®Г«ГіГ·ГЁГІГј/ГЏГ°Г®Г¤Г«ГЁГІГј ADDVIP') then reqFunc("addvip", "supreme") end
+        if imgui.Button(u8'Г‚Г»Г¤Г ГІГј Г±ГҐГЎГҐ Г«ГѕГЎГ®Г© Г­Г®ГўГ»Г© Г ГўГІГ®Г¬Г®ГЎГЁГ«Гј') then reqFunc("newcars", "supreme") end
         imgui.EndChild()
         imgui.BeginChild('maniac', imgui.ImVec2(355, 90), true)
-        if imgui.Button(u8'Очистить инвентарь') then reqFunc("clearinvent", "supreme") end
-        if imgui.Button(u8'Передача AZ-коинов') then reqFunc("tradeaz", "supreme") end
-        if imgui.Button(u8'Выдача AZ-рублей (каждые 24 часа от 1 до 100 рублей)') then reqFunc("azrub", "supreme") end
+        if imgui.Button(u8'ГЋГ·ГЁГ±ГІГЁГІГј ГЁГ­ГўГҐГ­ГІГ Г°Гј') then reqFunc("clearinvent", "supreme") end
+        if imgui.Button(u8'ГЏГҐГ°ГҐГ¤Г Г·Г  AZ-ГЄГ®ГЁГ­Г®Гў') then reqFunc("tradeaz", "supreme") end
+        if imgui.Button(u8'Г‚Г»Г¤Г Г·Г  AZ-Г°ГіГЎГ«ГҐГ© (ГЄГ Г¦Г¤Г»ГҐ 24 Г·Г Г±Г  Г®ГІ 1 Г¤Г® 100 Г°ГіГЎГ«ГҐГ©)') then reqFunc("azrub", "supreme") end
         imgui.EndChild()
         imgui.EndChild()
-        imgui.CenterButton(u8'Закрыть')
+        imgui.CenterButton(u8'Г‡Г ГЄГ°Г»ГІГј')
         elseif arenaMode then
         imgui.SetNextWindowSize(imgui.ImVec2(340, 260), imgui.Cond.FirstUseEver)
         imgui.SetWindowPos(imgui.ImVec2(835, 350), imgui.Cond.FirstUseEver)
         imgui.BeginChild('arena', imgui.ImVec2(300, 230), true)
-        if imgui.Button(u8'Изменить префикс в вип-чате') then reqFunc("prefix", "arena") end
-        if imgui.Button(u8'Заправить транспорт, в котором я нахожусь') then reqFunc("fastfill", "arena") end
-        if imgui.Button(u8'Телепортировать свой транспорт к себе') then reqFunc("tpcartome", "arena") end
-        if imgui.Button(u8'Выдать себе NRG-500') then reqFunc("fastnrg", "arena") end
-        if imgui.Button(u8'Посмотреть список администрации онлайн') then reqFunc("getadmins", "arena") end
-        if imgui.Button(u8'Получить рандомный предмет  (1 раз в 3 часа)') then reqFunc("items", "arena") end
-        if imgui.Button(u8'Заспавнить себя') then reqFunc("fastspawn", "arena") end
-        if imgui.Button(u8'Флипнуть транспорт, в котором я нахожусь') then reqFunc("fastflip", "arena") end
-        if imgui.Button(u8'Пополнить здоровье') then reqFunc("fasthp", "arena") end
+        if imgui.Button(u8'Г€Г§Г¬ГҐГ­ГЁГІГј ГЇГ°ГҐГґГЁГЄГ± Гў ГўГЁГЇ-Г·Г ГІГҐ') then reqFunc("prefix", "arena") end
+        if imgui.Button(u8'Г‡Г ГЇГ°Г ГўГЁГІГј ГІГ°Г Г­Г±ГЇГ®Г°ГІ, Гў ГЄГ®ГІГ®Г°Г®Г¬ Гї Г­Г ГµГ®Г¦ГіГ±Гј') then reqFunc("fastfill", "arena") end
+        if imgui.Button(u8'Г’ГҐГ«ГҐГЇГ®Г°ГІГЁГ°Г®ГўГ ГІГј Г±ГўГ®Г© ГІГ°Г Г­Г±ГЇГ®Г°ГІ ГЄ Г±ГҐГЎГҐ') then reqFunc("tpcartome", "arena") end
+        if imgui.Button(u8'Г‚Г»Г¤Г ГІГј Г±ГҐГЎГҐ NRG-500') then reqFunc("fastnrg", "arena") end
+        if imgui.Button(u8'ГЏГ®Г±Г¬Г®ГІГ°ГҐГІГј Г±ГЇГЁГ±Г®ГЄ Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г Г¶ГЁГЁ Г®Г­Г«Г Г©Г­') then reqFunc("getadmins", "arena") end
+        if imgui.Button(u8'ГЏГ®Г«ГіГ·ГЁГІГј Г°Г Г­Г¤Г®Г¬Г­Г»Г© ГЇГ°ГҐГ¤Г¬ГҐГІ  (1 Г°Г Г§ Гў 3 Г·Г Г±Г )') then reqFunc("items", "arena") end
+        if imgui.Button(u8'Г‡Г Г±ГЇГ ГўГ­ГЁГІГј Г±ГҐГЎГї') then reqFunc("fastspawn", "arena") end
+        if imgui.Button(u8'Г”Г«ГЁГЇГ­ГіГІГј ГІГ°Г Г­Г±ГЇГ®Г°ГІ, Гў ГЄГ®ГІГ®Г°Г®Г¬ Гї Г­Г ГµГ®Г¦ГіГ±Гј') then reqFunc("fastflip", "arena") end
+        if imgui.Button(u8'ГЏГ®ГЇГ®Г«Г­ГЁГІГј Г§Г¤Г®Г°Г®ГўГјГҐ') then reqFunc("fasthp", "arena") end
         imgui.EndChild()
-        imgui.CenterButton(u8'Закрыть')
+        imgui.CenterButton(u8'Г‡Г ГЄГ°Г»ГІГј')
         end
         imgui.End()
     end
     if keyboard.v then
-        imgui.PushStyleVar(imgui.StyleVar.WindowPadding, imgui.ImVec2(5.0, 2.4)) -- Фикс положения клавиш
-        imgui.PushStyleColor(imgui.Col.WindowBg, imgui.ImVec4(0,0,0,0)) -- Убираем фон
+        imgui.PushStyleVar(imgui.StyleVar.WindowPadding, imgui.ImVec2(5.0, 2.4)) -- Г”ГЁГЄГ± ГЇГ®Г«Г®Г¦ГҐГ­ГЁГї ГЄГ«Г ГўГЁГё
+        imgui.PushStyleColor(imgui.Col.WindowBg, imgui.ImVec4(0,0,0,0)) -- Г“ГЎГЁГ°Г ГҐГ¬ ГґГ®Г­
         imgui.SetNextWindowPos(keyboard_pos, imgui.Cond.FirstUseEver, imgui.ImVec2(0, 0))
         imgui.Begin('##keyboard', _, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoTitleBar + imgui.WindowFlags.AlwaysAutoResize + (config.keyboard.move and 0 or imgui.WindowFlags.NoMove) )
             keyboard_pos = imgui.GetWindowPos()
@@ -1454,7 +1454,7 @@ function imgui.OnDrawFrame()
 end
 
 keyboards = {
-    { -- Только цифры
+    { -- Г’Г®Г«ГјГЄГ® Г¶ГЁГґГ°Г»
         {
             {'1', 0x31},
             {'2', 0x32},
@@ -1472,7 +1472,7 @@ keyboards = {
             {' Enter ', 0x0D},
         }
     },
-    { -- Компактные цифры
+    { -- ГЉГ®Г¬ГЇГ ГЄГІГ­Г»ГҐ Г¶ГЁГґГ°Г»
         {
             {'1', 0x31},
             {'2', 0x32},
@@ -1497,7 +1497,7 @@ keyboards = {
             {' Enter ', 0x0D},
         }
     },
-    { -- Только NumPad
+    { -- Г’Г®Г«ГјГЄГ® NumPad
         {
             {'7', 0x67},
             {'8', 0x68},
@@ -1553,7 +1553,7 @@ function showCaptcha()
         else GenerateTextDraw(0, 259 + nextPos, 131, 3 + i * 10) end
     end
     captchaTable = {}
-    sampShowDialog(8812, '{F89168}Проверка на робота', '{FFFFFF}Введите {C6FB4A}5{FFFFFF} символов, которые\nвидно на {C6FB4A}вашем{FFFFFF} экране.', 'Принять', 'Отмена', 1)
+    sampShowDialog(8812, '{F89168}ГЏГ°Г®ГўГҐГ°ГЄГ  Г­Г  Г°Г®ГЎГ®ГІГ ', '{FFFFFF}Г‚ГўГҐГ¤ГЁГІГҐ {C6FB4A}5{FFFFFF} Г±ГЁГ¬ГўГ®Г«Г®Гў, ГЄГ®ГІГ®Г°Г»ГҐ\nГўГЁГ¤Г­Г® Г­Г  {C6FB4A}ГўГ ГёГҐГ¬{FFFFFF} ГЅГЄГ°Г Г­ГҐ.', 'ГЏГ°ГЁГ­ГїГІГј', 'ГЋГІГ¬ГҐГ­Г ', 1)
     captime = os.clock()
 end
 
@@ -1675,7 +1675,7 @@ function showOldCaptcha()
         else GenerateOldTextDraw(0, 240 + onextPos, 130, 3 + i * 10) end
     end
     captchaTable = {}
-    sampShowDialog(8812, '{F89168}Проверка на робота', '{FFFFFF}Введите {C6FB4A}5{FFFFFF} символов, которые\nвидно на {C6FB4A}вашем{FFFFFF} экране.', 'Принять', 'Отмена', 1)
+    sampShowDialog(8812, '{F89168}ГЏГ°Г®ГўГҐГ°ГЄГ  Г­Г  Г°Г®ГЎГ®ГІГ ', '{FFFFFF}Г‚ГўГҐГ¤ГЁГІГҐ {C6FB4A}5{FFFFFF} Г±ГЁГ¬ГўГ®Г«Г®Гў, ГЄГ®ГІГ®Г°Г»ГҐ\nГўГЁГ¤Г­Г® Г­Г  {C6FB4A}ГўГ ГёГҐГ¬{FFFFFF} ГЅГЄГ°Г Г­ГҐ.', 'ГЏГ°ГЁГ­ГїГІГј', 'ГЋГІГ¬ГҐГ­Г ', 1)
     captime = os.clock()
 end
 
@@ -1776,10 +1776,10 @@ function imgui.CenterButton(text)
 	local width = imgui.GetWindowWidth()
 	local calc = imgui.CalcTextSize(text)
 	imgui.SetCursorPosX( width / 2 - calc.x / 2 )
-	if text == u8'Закрыть' then
+	if text == u8'Г‡Г ГЄГ°Г»ГІГј' then
 		if imgui.Button(text) then imgui.CloseCurrentPopup() timeSettings = false messageSettings = false vip_window_state.v = false end
-    elseif text == u8'Изменить расположение' then
-        if imgui.Button(text) then imgui.CloseCurrentPopup() timeSettings = false messageSettings = false vip_window_state.v = false changePos = true if config.messages.chat then msg("Измените расположение времени курсором мыши и нажмите ЛКМ", "chat") elseif config.messages.console then msg("Измените расположение времени курсором мыши и нажмите ЛКМ", "console") elseif config.messages.silent then end end
+    elseif text == u8'Г€Г§Г¬ГҐГ­ГЁГІГј Г°Г Г±ГЇГ®Г«Г®Г¦ГҐГ­ГЁГҐ' then
+        if imgui.Button(text) then imgui.CloseCurrentPopup() timeSettings = false messageSettings = false vip_window_state.v = false changePos = true if config.messages.chat then msg("Г€Г§Г¬ГҐГ­ГЁГІГҐ Г°Г Г±ГЇГ®Г«Г®Г¦ГҐГ­ГЁГҐ ГўГ°ГҐГ¬ГҐГ­ГЁ ГЄГіГ°Г±Г®Г°Г®Г¬ Г¬Г»ГёГЁ ГЁ Г­Г Г¦Г¬ГЁГІГҐ Г‹ГЉГЊ", "chat") elseif config.messages.console then msg("Г€Г§Г¬ГҐГ­ГЁГІГҐ Г°Г Г±ГЇГ®Г«Г®Г¦ГҐГ­ГЁГҐ ГўГ°ГҐГ¬ГҐГ­ГЁ ГЄГіГ°Г±Г®Г°Г®Г¬ Г¬Г»ГёГЁ ГЁ Г­Г Г¦Г¬ГЁГІГҐ Г‹ГЉГЊ", "console") elseif config.messages.silent then end end
     else
 		imgui.Button(text)
 	end
@@ -1789,7 +1789,7 @@ function imgui.UpdateButton(text)
 	local width = imgui.GetWindowWidth()
 	local calc = imgui.CalcTextSize(text)
 	imgui.SetCursorPosX( width / 2.35 - calc.x / 2 )
-	if text == u8'Обновить' then
+	if text == u8'ГЋГЎГ­Г®ГўГЁГІГј' then
 		if imgui.Button(text) then imgui.CloseCurrentPopup() oldVersion = false update_state = true end
 	end
 end
@@ -2023,7 +2023,7 @@ function delcr()
 end
 function gotofunc(fnc)
     if fnc == "all" then
-        memory.write(5499541, 12044272, 4, false)-- ПАНОС
+        memory.write(5499541, 12044272, 4, false)-- ГЏГЂГЌГЋГ‘
         memory.write(8381985, 13213544, 4, false)
     end
 end
@@ -2042,12 +2042,12 @@ function fogdist()
             local dist = arg:match("(%d+)")
             dist = tonumber(dist)
             if type(dist) ~= 'number' or dist > 3600 or dist < 0 then
-                if config.messages.chat then msg('Используйте: '..goodcolor..'/'..config.commands.fdc..' [0-3600]', "chat") elseif config.messages.console then msg('Используйте: '..goodcolor..'/'..config.commands.fdc..' [0-3600]', "console") elseif config.messages.silent then end
+                if config.messages.chat then msg('Г€Г±ГЇГ®Г«ГјГ§ГіГ©ГІГҐ: '..goodcolor..'/'..config.commands.fdc..' [0-3600]', "chat") elseif config.messages.console then msg('Г€Г±ГЇГ®Г«ГјГ§ГіГ©ГІГҐ: '..goodcolor..'/'..config.commands.fdc..' [0-3600]', "console") elseif config.messages.silent then end
             else
                 config.main.dist = dist
                 memory.setfloat(12044272, config.main.dist, false)
                 inicfg.save(config, "Shapez")
-                if config.messages.chat then msg('Установлена дальность прорисовки: '..badcolor..''..config.main.dist, "chat") elseif config.messages.console then msg('Установлена дальность прорисовки: '..badcolor..''..config.main.dist, "console") elseif config.messages.silent then end
+                if config.messages.chat then msg('Г“Г±ГІГ Г­Г®ГўГ«ГҐГ­Г  Г¤Г Г«ГјГ­Г®Г±ГІГј ГЇГ°Г®Г°ГЁГ±Г®ГўГЄГЁ: '..badcolor..''..config.main.dist, "chat") elseif config.messages.console then msg('Г“Г±ГІГ Г­Г®ГўГ«ГҐГ­Г  Г¤Г Г«ГјГ­Г®Г±ГІГј ГЇГ°Г®Г°ГЁГ±Г®ГўГЄГЁ: '..badcolor..''..config.main.dist, "console") elseif config.messages.silent then end
             end
         end)
         memory.setfloat(12044272, config.main.dist, false)
@@ -2064,8 +2064,8 @@ function checkBeforeLoad()
     if thisScript().filename ~= 'Shapez.lua' then os.rename(getGameDirectory() .. "/moonloader/" .. thisScript().filename, getGameDirectory() .. "/moonloader/Shapez.lua") end
     if tonumber(updates.info["version_n"]) > version_n then
         oldVersion = true
-        if config.messages.chat then msg("Есть обновление! Версия: " .. updates.info["version"], "chat") elseif config.messages.console then msg("Есть обновление! Версия: " .. updates.info["version"], "console") elseif config.messages.silent then end
-        if config.messages.chat then msg("Что бы узнать больше, откройте меню скрипта", "chat") elseif config.messages.console then msg("Что бы узнать больше, откройте меню скрипта", "console") elseif config.messages.silent then end
+        if config.messages.chat then msg("Г…Г±ГІГј Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ! Г‚ГҐГ°Г±ГЁГї: " .. updates.info["version"], "chat") elseif config.messages.console then msg("Г…Г±ГІГј Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ! Г‚ГҐГ°Г±ГЁГї: " .. updates.info["version"], "console") elseif config.messages.silent then end
+        if config.messages.chat then msg("Г—ГІГ® ГЎГ» ГіГ§Г­Г ГІГј ГЎГ®Г«ГјГёГҐ, Г®ГІГЄГ°Г®Г©ГІГҐ Г¬ГҐГ­Гѕ Г±ГЄГ°ГЁГЇГІГ ", "chat") elseif config.messages.console then msg("Г—ГІГ® ГЎГ» ГіГ§Г­Г ГІГј ГЎГ®Г«ГјГёГҐ, Г®ГІГЄГ°Г®Г©ГІГҐ Г¬ГҐГ­Гѕ Г±ГЄГ°ГЁГЇГІГ ", "console") elseif config.messages.silent then end
     end
     if ip == '176.32.39.165' then
         arenaMode = true
@@ -2087,11 +2087,11 @@ function checkBeforeLoad()
         if ip == arizonaServers[i] then
             aServer = i
             arizona = true
-            if config.messages.chat then msg('Вы зашли на '..aServer..' сервер Arizona RP, не забудьте отключить кричалку и таймер ловли', "chat") elseif config.messages.console then msg('Вы зашли на '..aServer..' сервер Arizona RP, не забудьте отключить кричалку и таймер ловли', "console") elseif config.messages.silent then end
+            if config.messages.chat then msg('Г‚Г» Г§Г ГёГ«ГЁ Г­Г  '..aServer..' Г±ГҐГ°ГўГҐГ° Arizona RP, Г­ГҐ Г§Г ГЎГіГ¤ГјГІГҐ Г®ГІГЄГ«ГѕГ·ГЁГІГј ГЄГ°ГЁГ·Г Г«ГЄГі ГЁ ГІГ Г©Г¬ГҐГ° Г«Г®ГўГ«ГЁ', "chat") elseif config.messages.console then msg('Г‚Г» Г§Г ГёГ«ГЁ Г­Г  '..aServer..' Г±ГҐГ°ГўГҐГ° Arizona RP, Г­ГҐ Г§Г ГЎГіГ¤ГјГІГҐ Г®ГІГЄГ«ГѕГ·ГЁГІГј ГЄГ°ГЁГ·Г Г«ГЄГі ГЁ ГІГ Г©Г¬ГҐГ° Г«Г®ГўГ«ГЁ', "console") elseif config.messages.silent then end
         end
     end
-    if locked and not arizona then if config.messages.chat then msg("На этом сервере не поддерживаются некоторые функции", "chat") elseif config.messages.console then msg("На этом сервере не поддерживаются некоторые функции", "console") elseif config.messages.silent then end end
-    if locked and config.main.trainmode == 'supreme' then config.main.trainmode = 'new' if config.messages.chat then msg("Тип капчи в тренинге не поддерживается, установлен новый тип капчи", "chat") elseif config.messages.console then msg("Тип капчи в тренинге не поддерживается, установлен новый тип капчи", "console") elseif config.messages.silent then end end
+    if locked and not arizona then if config.messages.chat then msg("ГЌГ  ГЅГІГ®Г¬ Г±ГҐГ°ГўГҐГ°ГҐ Г­ГҐ ГЇГ®Г¤Г¤ГҐГ°Г¦ГЁГўГ ГѕГІГ±Гї Г­ГҐГЄГ®ГІГ®Г°Г»ГҐ ГґГіГ­ГЄГ¶ГЁГЁ", "chat") elseif config.messages.console then msg("ГЌГ  ГЅГІГ®Г¬ Г±ГҐГ°ГўГҐГ°ГҐ Г­ГҐ ГЇГ®Г¤Г¤ГҐГ°Г¦ГЁГўГ ГѕГІГ±Гї Г­ГҐГЄГ®ГІГ®Г°Г»ГҐ ГґГіГ­ГЄГ¶ГЁГЁ", "console") elseif config.messages.silent then end end
+    if locked and config.main.trainmode == 'supreme' then config.main.trainmode = 'new' if config.messages.chat then msg("Г’ГЁГЇ ГЄГ ГЇГ·ГЁ Гў ГІГ°ГҐГ­ГЁГ­ГЈГҐ Г­ГҐ ГЇГ®Г¤Г¤ГҐГ°Г¦ГЁГўГ ГҐГІГ±Гї, ГіГ±ГІГ Г­Г®ГўГ«ГҐГ­ Г­Г®ГўГ»Г© ГІГЁГЇ ГЄГ ГЇГ·ГЁ", "chat") elseif config.messages.console then msg("Г’ГЁГЇ ГЄГ ГЇГ·ГЁ Гў ГІГ°ГҐГ­ГЁГ­ГЈГҐ Г­ГҐ ГЇГ®Г¤Г¤ГҐГ°Г¦ГЁГўГ ГҐГІГ±Гї, ГіГ±ГІГ Г­Г®ГўГ«ГҐГ­ Г­Г®ГўГ»Г© ГІГЁГЇ ГЄГ ГЇГ·ГЁ", "console") elseif config.messages.silent then end end
     trainmode()
     if config.main.fd then
         gotofunc("all")
@@ -2121,7 +2121,7 @@ function main()
     sampRegisterChatCommand('msgconsole', function(arg) msg(""..arg.."", "console") end)
     renderTimeFont = renderCreateFont(config.servertime.timeFont, config.servertime.timeSize, config.servertime.timeStyle)
     colorOfTime = join_argb(255, config.servertime.timeR, config.servertime.timeG, config.servertime.timeB)
-    if config.messages.chat then msg('Загружен! Автор: '..goodcolor..''..author..'{ffffff}. Версия: '..goodcolor..''..version..'{ffffff}, активация: '..goodcolor..'F11.', "chat") elseif config.messages.console then msg('Загружен! Автор: '..goodcolor..''..author..'{ffffff}. Версия: '..goodcolor..''..version..'{ffffff}, активация: '..goodcolor..'F11.', "console") elseif config.messages.silent then end
+    if config.messages.chat then msg('Г‡Г ГЈГ°ГіГ¦ГҐГ­! ГЂГўГІГ®Г°: '..goodcolor..''..author..'{ffffff}. Г‚ГҐГ°Г±ГЁГї: '..goodcolor..''..version..'{ffffff}, Г ГЄГІГЁГўГ Г¶ГЁГї: '..goodcolor..'F11.', "chat") elseif config.messages.console then msg('Г‡Г ГЈГ°ГіГ¦ГҐГ­! ГЂГўГІГ®Г°: '..goodcolor..''..author..'{ffffff}. Г‚ГҐГ°Г±ГЁГї: '..goodcolor..''..version..'{ffffff}, Г ГЄГІГЁГўГ Г¶ГЁГї: '..goodcolor..'F11.', "console") elseif config.messages.silent then end
     if config.main.shorten then
         sampRegisterChatCommand(config.commands.fhc, function(num)
             sampSendChat('/findihouse '..num)
@@ -2134,7 +2134,7 @@ function main()
         if update_state then
             downloadUrlToFile(script_url, script_path, function(id, status)
                 if status == dlstatus.STATUS_ENDDOWNLOADDATA then
-                    if config.messages.chat then msg("Скрипт успешно обновлен!", "chat") elseif config.messages.console then msg("Скрипт успешно обновлен!", "console") elseif config.messages.silent then end
+                    if config.messages.chat then msg("Г‘ГЄГ°ГЁГЇГІ ГіГ±ГЇГҐГёГ­Г® Г®ГЎГ­Г®ГўГ«ГҐГ­!", "chat") elseif config.messages.console then msg("Г‘ГЄГ°ГЁГЇГІ ГіГ±ГЇГҐГёГ­Г® Г®ГЎГ­Г®ГўГ«ГҐГ­!", "console") elseif config.messages.silent then end
                     thisScript():reload()
                 end
             end)
@@ -2172,7 +2172,7 @@ function main()
                 config.servertime.timeX = cX
                 config.servertime.timeY = cY
                 changePos = false
-                if config.messages.chat then msg("Расположение времени сохранено", "chat") elseif config.messages.console then msg("Расположение времени сохранено", "console") elseif config.messages.silent then end
+                if config.messages.chat then msg("ГђГ Г±ГЇГ®Г«Г®Г¦ГҐГ­ГЁГҐ ГўГ°ГҐГ¬ГҐГ­ГЁ Г±Г®ГµГ°Г Г­ГҐГ­Г®", "chat") elseif config.messages.console then msg("ГђГ Г±ГЇГ®Г«Г®Г¦ГҐГ­ГЁГҐ ГўГ°ГҐГ¬ГҐГ­ГЁ Г±Г®ГµГ°Г Г­ГҐГ­Г®", "console") elseif config.messages.silent then end
                 showCursor(false)
             end
             else
@@ -2185,13 +2185,13 @@ function main()
         local result, button, list, input = sampHasDialogRespond(8812)
         if result then
             if button == 1 then
-                if input == captcha..'0' then if config.messages.chat then msg(string.format('{ffffff}Код верный [%.3f]', os.clock() - captime), "chat") elseif config.messages.console then msg(string.format('{ffffff}Код верный [%.3f]', os.clock() - captime), "console") elseif config.messages.silent then end
+                if input == captcha..'0' then if config.messages.chat then msg(string.format('{ffffff}ГЉГ®Г¤ ГўГҐГ°Г­Г»Г© [%.3f]', os.clock() - captime), "chat") elseif config.messages.console then msg(string.format('{ffffff}ГЉГ®Г¤ ГўГҐГ°Г­Г»Г© [%.3f]', os.clock() - captime), "console") elseif config.messages.silent then end
                 config.captcha.vcode = config.captcha.vcode + 1
                 if os.clock() - captime < config.captcha.record or config.captcha.record == 0 then
                     config.captcha.record = floorStep(os.clock() - captime, 0.001)
-                    if config.messages.chat then msg('Новый рекорд ввода капчи: '..goodcolor..''..config.captcha.record..' {ffffff}сек!', "chat") elseif config.messages.console then msg('Новый рекорд ввода капчи: '..goodcolor..''..config.captcha.record..' {ffffff}сек!', "console") elseif config.messages.silent then end
+                    if config.messages.chat then msg('ГЌГ®ГўГ»Г© Г°ГҐГЄГ®Г°Г¤ ГўГўГ®Г¤Г  ГЄГ ГЇГ·ГЁ: '..goodcolor..''..config.captcha.record..' {ffffff}Г±ГҐГЄ!', "chat") elseif config.messages.console then msg('ГЌГ®ГўГ»Г© Г°ГҐГЄГ®Г°Г¤ ГўГўГ®Г¤Г  ГЄГ ГЇГ·ГЁ: '..goodcolor..''..config.captcha.record..' {ffffff}Г±ГҐГЄ!', "console") elseif config.messages.silent then end
                 end
-                elseif input ~= captcha..'0' then if config.messages.chat then msg(string.format('{ffffff}Неверный код! [%.3f] ('..captcha..'0|'..input..')', os.clock() - captime), "chat") elseif config.messages.console then msg(string.format('{ffffff}Неверный код! [%.3f] ('..captcha..'0|'..input..')', os.clock() - captime), "console") elseif config.messages.silent then end
+                elseif input ~= captcha..'0' then if config.messages.chat then msg(string.format('{ffffff}ГЌГҐГўГҐГ°Г­Г»Г© ГЄГ®Г¤! [%.3f] ('..captcha..'0|'..input..')', os.clock() - captime), "chat") elseif config.messages.console then msg(string.format('{ffffff}ГЌГҐГўГҐГ°Г­Г»Г© ГЄГ®Г¤! [%.3f] ('..captcha..'0|'..input..')', os.clock() - captime), "console") elseif config.messages.silent then end
                     config.captcha.ncode = config.captcha.ncode + 1
                 end
             end
@@ -2271,15 +2271,15 @@ end
 
 function ev.onSendCommand(int)
     if int == '/vip' and (arenaMode or supremeMode) and not locked then vip_window_state.v = not vip_window_state.v return false end
-    if int == '/'..config.commands.arc..'' and config.main.ar and (arenaMode or supremeMode) then sync = not sync if config.messages.chat then msg(sync and "Синхронизация включена" or "Синхронизация выключена", "chat") elseif config.messages.console then msg(sync and "Синхронизация включена" or "Синхронизация выключена", "console") elseif config.messages.silent then end return false end
+    if int == '/'..config.commands.arc..'' and config.main.ar and (arenaMode or supremeMode) then sync = not sync if config.messages.chat then msg(sync and "Г‘ГЁГ­ГµГ°Г®Г­ГЁГ§Г Г¶ГЁГї ГўГЄГ«ГѕГ·ГҐГ­Г " or "Г‘ГЁГ­ГµГ°Г®Г­ГЁГ§Г Г¶ГЁГї ГўГ»ГЄГ«ГѕГ·ГҐГ­Г ", "chat") elseif config.messages.console then msg(sync and "Г‘ГЁГ­ГµГ°Г®Г­ГЁГ§Г Г¶ГЁГї ГўГЄГ«ГѕГ·ГҐГ­Г " or "Г‘ГЁГ­ГµГ°Г®Г­ГЁГ§Г Г¶ГЁГї ГўГ»ГЄГ«ГѕГ·ГҐГ­Г ", "console") elseif config.messages.silent then end return false end
     if int == '/'..config.commands.delpc..'' and config.main.delp and (arenaMode or supremeMode) then
         if config.main.delp and config.main.newdelp then
             delplayers = not delplayers
             delch()
-            msg('Постоянное удаление людей '..(delplayers and 'активировано' or 'деактивировано'), "chat")
+            msg('ГЏГ®Г±ГІГ®ГїГ­Г­Г®ГҐ ГіГ¤Г Г«ГҐГ­ГЁГҐ Г«ГѕГ¤ГҐГ© '..(delplayers and 'Г ГЄГІГЁГўГЁГ°Г®ГўГ Г­Г®' or 'Г¤ГҐГ ГЄГІГЁГўГЁГ°Г®ГўГ Г­Г®'), "chat")
         elseif config.main.delp and not config.main.newdelp then
             delch()
-            msg("Все люди успешно удалены", "chat")
+            msg("Г‚Г±ГҐ Г«ГѕГ¤ГЁ ГіГ±ГЇГҐГёГ­Г® ГіГ¤Г Г«ГҐГ­Г»", "chat")
         end
     return false
     end
@@ -2287,9 +2287,9 @@ function ev.onSendCommand(int)
         if config.main.delc and config.main.newdelc and not isCharSittingInAnyCar(PLAYER_PED) then
             delcars = not delcars
             delcr()
-            msg('Постоянное удаление машин '..(delcars and 'активировано' or 'деактивировано'), "chat")
+            msg('ГЏГ®Г±ГІГ®ГїГ­Г­Г®ГҐ ГіГ¤Г Г«ГҐГ­ГЁГҐ Г¬Г ГёГЁГ­ '..(delcars and 'Г ГЄГІГЁГўГЁГ°Г®ГўГ Г­Г®' or 'Г¤ГҐГ ГЄГІГЁГўГЁГ°Г®ГўГ Г­Г®'), "chat")
         elseif config.main.delc and not config.main.newdelc and not isCharSittingInAnyCar(PLAYER_PED) then
-            msg("Все машины успешно удалены", "chat")
+            msg("Г‚Г±ГҐ Г¬Г ГёГЁГ­Г» ГіГ±ГЇГҐГёГ­Г® ГіГ¤Г Г«ГҐГ­Г»", "chat")
             delcr()
         end
     return false
@@ -2298,13 +2298,13 @@ end
 
 function ev.onShowDialog(id, style, title, b1, b2, text)
     if config.main.antipodkid then
-        if id == 7372 and title:find("Торговля") then if config.main.pribil then msg('Вам кто-то кинул трейд', "chat") end return false end
-        if title:find("Паспорт") then if config.main.pribil then msg('Кто-то пытается показать вам паспорт', "chat") end return false end
-        if title:find("Лицензии") then if config.main.pribil then msg('Кто-то пытается показать вам лицензии', "chat") end return false end
-        if title:find("Статистика") and text:find("Навык стрельбы игрока") then if config.main.pribil then msg('Кто-то пытается показать вам навык стрельбы', "chat") end return false end
-        if text:find('День Прибыль') then if config.main.pribil then msg('Кто-то пытается показать вам прибыль', -1) end return false end
-        if text:find('дал вам копию ключей от транспорта') then if config.main.pribil then msg('Кто-то передал вам ключи от транспорта', "chat") end return false end
-        if text:find('Вам ответил администратор') then if config.main.pribil then msg('Администратор ответил вам на репорт', "chat") end return false end
+        if id == 7372 and title:find("Г’Г®Г°ГЈГ®ГўГ«Гї") then if config.main.pribil then msg('Г‚Г Г¬ ГЄГІГ®-ГІГ® ГЄГЁГ­ГіГ« ГІГ°ГҐГ©Г¤', "chat") end return false end
+        if title:find("ГЏГ Г±ГЇГ®Г°ГІ") then if config.main.pribil then msg('ГЉГІГ®-ГІГ® ГЇГ»ГІГ ГҐГІГ±Гї ГЇГ®ГЄГ Г§Г ГІГј ГўГ Г¬ ГЇГ Г±ГЇГ®Г°ГІ', "chat") end return false end
+        if title:find("Г‹ГЁГ¶ГҐГ­Г§ГЁГЁ") then if config.main.pribil then msg('ГЉГІГ®-ГІГ® ГЇГ»ГІГ ГҐГІГ±Гї ГЇГ®ГЄГ Г§Г ГІГј ГўГ Г¬ Г«ГЁГ¶ГҐГ­Г§ГЁГЁ', "chat") end return false end
+        if title:find("Г‘ГІГ ГІГЁГ±ГІГЁГЄГ ") and text:find("ГЌГ ГўГ»ГЄ Г±ГІГ°ГҐГ«ГјГЎГ» ГЁГЈГ°Г®ГЄГ ") then if config.main.pribil then msg('ГЉГІГ®-ГІГ® ГЇГ»ГІГ ГҐГІГ±Гї ГЇГ®ГЄГ Г§Г ГІГј ГўГ Г¬ Г­Г ГўГ»ГЄ Г±ГІГ°ГҐГ«ГјГЎГ»', "chat") end return false end
+        if text:find('Г„ГҐГ­Гј ГЏГ°ГЁГЎГ»Г«Гј') then if config.main.pribil then msg('ГЉГІГ®-ГІГ® ГЇГ»ГІГ ГҐГІГ±Гї ГЇГ®ГЄГ Г§Г ГІГј ГўГ Г¬ ГЇГ°ГЁГЎГ»Г«Гј', -1) end return false end
+        if text:find('Г¤Г Г« ГўГ Г¬ ГЄГ®ГЇГЁГѕ ГЄГ«ГѕГ·ГҐГ© Г®ГІ ГІГ°Г Г­Г±ГЇГ®Г°ГІГ ') then if config.main.pribil then msg('ГЉГІГ®-ГІГ® ГЇГҐГ°ГҐГ¤Г Г« ГўГ Г¬ ГЄГ«ГѕГ·ГЁ Г®ГІ ГІГ°Г Г­Г±ГЇГ®Г°ГІГ ', "chat") end return false end
+        if text:find('Г‚Г Г¬ Г®ГІГўГҐГІГЁГ« Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°') then if config.main.pribil then msg('ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° Г®ГІГўГҐГІГЁГ« ГўГ Г¬ Г­Г  Г°ГҐГЇГ®Г°ГІ', "chat") end return false end
     end
     if id == 2760 and supremeMode and not locked then
         if title:find("{BFBBBA}{ffffff}Arizona Supreme | {9758fc}VIP{ffffff} MENU") then
@@ -2312,11 +2312,11 @@ function ev.onShowDialog(id, style, title, b1, b2, text)
         end
     end
     if id == 7760 and arenaMode and not locked then
-        if title:find("Выбор") then
+        if title:find("Г‚Г»ГЎГ®Г°") then
             return false
         end
     end
-    if title:find("Проверка на робота") then
+    if title:find("ГЏГ°Г®ГўГҐГ°ГЄГ  Г­Г  Г°Г®ГЎГ®ГІГ ") then
     did = id
     start = os.clock()
     end
@@ -2327,7 +2327,7 @@ function ev.onSendDialogResponse(id, but, lis, input)
     time = os.clock() - start
     time1 = string.format("%.3f", time)
   if config.main.timer then
-    if config.messages.chat then msg('Вы ввели капчу: '.. goodcolor ..'['..input..']{FFFFFF}, таймер ввода: '.. goodcolor ..'['..time1..']{FFFFFF}', "chat") elseif config.messages.console then msg('Вы ввели капчу: '.. goodcolor ..'['..input..']{FFFFFF}, таймер ввода: '.. goodcolor ..'['..time1..']{FFFFFF}', "console") elseif config.messages.silent then end
+    if config.messages.chat then msg('Г‚Г» ГўГўГҐГ«ГЁ ГЄГ ГЇГ·Гі: '.. goodcolor ..'['..input..']{FFFFFF}, ГІГ Г©Г¬ГҐГ° ГўГўГ®Г¤Г : '.. goodcolor ..'['..time1..']{FFFFFF}', "chat") elseif config.messages.console then msg('Г‚Г» ГўГўГҐГ«ГЁ ГЄГ ГЇГ·Гі: '.. goodcolor ..'['..input..']{FFFFFF}, ГІГ Г©Г¬ГҐГ° ГўГўГ®Г¤Г : '.. goodcolor ..'['..time1..']{FFFFFF}', "console") elseif config.messages.silent then end
     end
   end
 end
@@ -2344,11 +2344,11 @@ function ev.onVehicleStreamIn()
 end
 
 function ev.onServerMessage(color, text)
-  if text:find('этот бизнес ваш!') and color == 1941201407 then
+  if text:find('ГЅГІГ®ГІ ГЎГЁГ§Г­ГҐГ± ГўГ Гё!') and color == 1941201407 then
     config.captcha.vcode = config.captcha.vcode + 1
     if time < config.captcha.record or config.captcha.record == 0 then
         config.captcha.record = floorStep(time, 0.001)
-        if config.messages.chat then msg('Новый рекорд ввода капчи: '..goodcolor..''..config.captcha.record..' {ffffff}сек!', "chat") elseif config.messages.console then msg('Новый рекорд ввода капчи: '..goodcolor..''..config.captcha.record..' {ffffff}сек!', "console") elseif config.messages.silent then end
+        if config.messages.chat then msg('ГЌГ®ГўГ»Г© Г°ГҐГЄГ®Г°Г¤ ГўГўГ®Г¤Г  ГЄГ ГЇГ·ГЁ: '..goodcolor..''..config.captcha.record..' {ffffff}Г±ГҐГЄ!', "chat") elseif config.messages.console then msg('ГЌГ®ГўГ»Г© Г°ГҐГЄГ®Г°Г¤ ГўГўГ®Г¤Г  ГЄГ ГЇГ·ГЁ: '..goodcolor..''..config.captcha.record..' {ffffff}Г±ГҐГЄ!', "console") elseif config.messages.silent then end
     end
     if config.main.msg then
         if config.main.texttime and config.main.textcap then sampSendChat(u8:decode(string.format('%s [%.3f] ['..sampGetCurrentDialogEditboxText()..']', config.main.text, time)))
@@ -2357,21 +2357,21 @@ function ev.onServerMessage(color, text)
         else sampSendChat(u8:decode(config.main.text)) end
     end
     if config.main.recolor and config.main.jt then
-      sampAddChatMessage(string.format(goodcolor ..'[Информация] {FFFFFF}Поздравляю! Теперь этот бизнес ваш! [%.3f]', time), -1)
+      sampAddChatMessage(string.format(goodcolor ..'[Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї] {FFFFFF}ГЏГ®Г§Г¤Г°Г ГўГ«ГїГѕ! Г’ГҐГЇГҐГ°Гј ГЅГІГ®ГІ ГЎГЁГ§Г­ГҐГ± ГўГ Гё! [%.3f]', time), -1)
       return false
   elseif config.main.jt then
-      sampAddChatMessage(string.format('{73B461}[Информация] {FFFFFF}Поздравляю! Теперь этот бизнес ваш! [%.3f]', time), -1)
+      sampAddChatMessage(string.format('{73B461}[Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї] {FFFFFF}ГЏГ®Г§Г¤Г°Г ГўГ«ГїГѕ! Г’ГҐГЇГҐГ°Гј ГЅГІГ®ГІ ГЎГЁГ§Г­ГҐГ± ГўГ Гё! [%.3f]', time), -1)
       return false
   elseif config.main.recolor then
-        sampAddChatMessage(goodcolor ..'[Информация] {FFFFFF}Поздравляю! Теперь этот бизнес ваш!', -1)
+        sampAddChatMessage(goodcolor ..'[Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї] {FFFFFF}ГЏГ®Г§Г¤Г°Г ГўГ«ГїГѕ! Г’ГҐГЇГҐГ°Гј ГЅГІГ®ГІ ГЎГЁГ§Г­ГҐГ± ГўГ Гё!', -1)
         return false
     end
   end
-  if text:find('этот дом ваш!') and color == 1941201407 then
+  if text:find('ГЅГІГ®ГІ Г¤Г®Г¬ ГўГ Гё!') and color == 1941201407 then
     config.captcha.vcode = config.captcha.vcode + 1
     if time < config.captcha.record or config.captcha.record == 0 then
         config.captcha.record = floorStep(time, 0.001)
-        if config.messages.chat then msg('Новый рекорд ввода капчи: '..goodcolor..''..config.captcha.record..' {ffffff}сек!', "chat") elseif config.messages.console then msg('Новый рекорд ввода капчи: '..goodcolor..''..config.captcha.record..' {ffffff}сек!', "console") elseif config.messages.silent then end
+        if config.messages.chat then msg('ГЌГ®ГўГ»Г© Г°ГҐГЄГ®Г°Г¤ ГўГўГ®Г¤Г  ГЄГ ГЇГ·ГЁ: '..goodcolor..''..config.captcha.record..' {ffffff}Г±ГҐГЄ!', "chat") elseif config.messages.console then msg('ГЌГ®ГўГ»Г© Г°ГҐГЄГ®Г°Г¤ ГўГўГ®Г¤Г  ГЄГ ГЇГ·ГЁ: '..goodcolor..''..config.captcha.record..' {ffffff}Г±ГҐГЄ!', "console") elseif config.messages.silent then end
     end
     if config.main.msg then
         if config.main.texttime and config.main.textcap then sampSendChat(u8:decode(string.format('%s [%.3f] ['..sampGetCurrentDialogEditboxText()..']', config.main.text, time)))
@@ -2380,122 +2380,122 @@ function ev.onServerMessage(color, text)
         else sampSendChat(u8:decode(config.main.text)) end
     end
     if config.main.recolor and config.main.jt then
-      sampAddChatMessage(string.format(goodcolor ..'[Информация] {FFFFFF}Поздравляю! Теперь этот дом ваш! [%.3f]', time), -1)
+      sampAddChatMessage(string.format(goodcolor ..'[Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї] {FFFFFF}ГЏГ®Г§Г¤Г°Г ГўГ«ГїГѕ! Г’ГҐГЇГҐГ°Гј ГЅГІГ®ГІ Г¤Г®Г¬ ГўГ Гё! [%.3f]', time), -1)
       return false
   elseif config.main.jt then
-      sampAddChatMessage(string.format('{73B461}[Информация] {FFFFFF}Поздравляю! Теперь этот дом ваш! [%.3f]', time), -1)
+      sampAddChatMessage(string.format('{73B461}[Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї] {FFFFFF}ГЏГ®Г§Г¤Г°Г ГўГ«ГїГѕ! Г’ГҐГЇГҐГ°Гј ГЅГІГ®ГІ Г¤Г®Г¬ ГўГ Гё! [%.3f]', time), -1)
       return false
   elseif config.main.recolor then
-        sampAddChatMessage(goodcolor ..'[Информация] {FFFFFF}Поздравляю! Теперь этот дом ваш!', -1)
+        sampAddChatMessage(goodcolor ..'[Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї] {FFFFFF}ГЏГ®Г§Г¤Г°Г ГўГ«ГїГѕ! Г’ГҐГЇГҐГ°Гј ГЅГІГ®ГІ Г¤Г®Г¬ ГўГ Гё!', -1)
         return false
     end
   end
-  if text:find('Ответ неверный!') and color == -10270721 then
+  if text:find('ГЋГІГўГҐГІ Г­ГҐГўГҐГ°Г­Г»Г©!') and color == -10270721 then
     config.captcha.ncode = config.captcha.ncode + 1
     if config.main.recolor and config.main.jt then
-        sampAddChatMessage(string.format(badcolor ..'[Ошибка] {FFFFFF}Ответ неверный! [%.3f]', time), -1)
+        sampAddChatMessage(string.format(badcolor ..'[ГЋГёГЁГЎГЄГ ] {FFFFFF}ГЋГІГўГҐГІ Г­ГҐГўГҐГ°Г­Г»Г©! [%.3f]', time), -1)
         return false
     elseif config.main.jt then
-        sampAddChatMessage(string.format('{FF6347}[Ошибка] {FFFFFF}Ответ неверный! [%.3f]', time), -1)
+        sampAddChatMessage(string.format('{FF6347}[ГЋГёГЁГЎГЄГ ] {FFFFFF}ГЋГІГўГҐГІ Г­ГҐГўГҐГ°Г­Г»Г©! [%.3f]', time), -1)
         return false
     elseif config.main.recolor then
-        sampAddChatMessage(badcolor ..'[Ошибка] {FFFFFF}Ответ неверный!', -1)
+        sampAddChatMessage(badcolor ..'[ГЋГёГЁГЎГЄГ ] {FFFFFF}ГЋГІГўГҐГІ Г­ГҐГўГҐГ°Г­Г»Г©!', -1)
         return false
     end
   end
-  if text:find('Неверный код!') and color == -10270721 then
+  if text:find('ГЌГҐГўГҐГ°Г­Г»Г© ГЄГ®Г¤!') and color == -10270721 then
     config.captcha.ncode = config.captcha.ncode + 1
     if config.main.recolor and config.main.jt then
-        sampAddChatMessage(string.format(badcolor ..'[Ошибка] {FFFFFF}Неверный код! [%.3f]', time), -1)
+        sampAddChatMessage(string.format(badcolor ..'[ГЋГёГЁГЎГЄГ ] {FFFFFF}ГЌГҐГўГҐГ°Г­Г»Г© ГЄГ®Г¤! [%.3f]', time), -1)
         return false
     elseif config.main.jt then
-        sampAddChatMessage(string.format('{FF6347}[Ошибка] {FFFFFF}Неверный код! [%.3f]', time), -1)
+        sampAddChatMessage(string.format('{FF6347}[ГЋГёГЁГЎГЄГ ] {FFFFFF}ГЌГҐГўГҐГ°Г­Г»Г© ГЄГ®Г¤! [%.3f]', time), -1)
         return false
     elseif config.main.recolor then
-        sampAddChatMessage(badcolor ..'[Ошибка] {FFFFFF}Неверный код!', -1)
+        sampAddChatMessage(badcolor ..'[ГЋГёГЁГЎГЄГ ] {FFFFFF}ГЌГҐГўГҐГ°Г­Г»Г© ГЄГ®Г¤!', -1)
         return false
     end
   end
-  if text:find('Этот дом уже куплен!') and color == -10270721 then
+  if text:find('ГќГІГ®ГІ Г¤Г®Г¬ ГіГ¦ГҐ ГЄГіГЇГ«ГҐГ­!') and color == -10270721 then
     if config.main.recolor and config.main.jt then
-        sampAddChatMessage(string.format(badcolor ..'[Ошибка] {FFFFFF}Этот дом уже куплен! [%.3f]', time), -1)
+        sampAddChatMessage(string.format(badcolor ..'[ГЋГёГЁГЎГЄГ ] {FFFFFF}ГќГІГ®ГІ Г¤Г®Г¬ ГіГ¦ГҐ ГЄГіГЇГ«ГҐГ­! [%.3f]', time), -1)
         return false
     elseif config.main.jt then
-        sampAddChatMessage(string.format('{FF6347}[Ошибка] {FFFFFF}Этот дом уже куплен! [%.3f]', time), -1)
+        sampAddChatMessage(string.format('{FF6347}[ГЋГёГЁГЎГЄГ ] {FFFFFF}ГќГІГ®ГІ Г¤Г®Г¬ ГіГ¦ГҐ ГЄГіГЇГ«ГҐГ­! [%.3f]', time), -1)
         return false
     elseif config.main.recolor then
-        sampAddChatMessage(badcolor ..'[Ошибка] {FFFFFF}Этот дом уже куплен!', -1)
+        sampAddChatMessage(badcolor ..'[ГЋГёГЁГЎГЄГ ] {FFFFFF}ГќГІГ®ГІ Г¤Г®Г¬ ГіГ¦ГҐ ГЄГіГЇГ«ГҐГ­!', -1)
         return false
     end
   end
-  if text:find('Этот дом уже кем то куплен!') and color == -10270721 then
+  if text:find('ГќГІГ®ГІ Г¤Г®Г¬ ГіГ¦ГҐ ГЄГҐГ¬ ГІГ® ГЄГіГЇГ«ГҐГ­!') and color == -10270721 then
     if config.main.recolor and config.main.jt and time ~= nil then
-        sampAddChatMessage(string.format(badcolor ..'[Ошибка] {FFFFFF}Этот дом уже кем то куплен! [%.3f]', time), -1)
+        sampAddChatMessage(string.format(badcolor ..'[ГЋГёГЁГЎГЄГ ] {FFFFFF}ГќГІГ®ГІ Г¤Г®Г¬ ГіГ¦ГҐ ГЄГҐГ¬ ГІГ® ГЄГіГЇГ«ГҐГ­! [%.3f]', time), -1)
         return false
     elseif config.main.jt and time ~= nil then
-        sampAddChatMessage(string.format('{FF6347}[Ошибка] {FFFFFF}Этот дом уже кем то куплен! [%.3f]', time), -1)
+        sampAddChatMessage(string.format('{FF6347}[ГЋГёГЁГЎГЄГ ] {FFFFFF}ГќГІГ®ГІ Г¤Г®Г¬ ГіГ¦ГҐ ГЄГҐГ¬ ГІГ® ГЄГіГЇГ«ГҐГ­! [%.3f]', time), -1)
         return false
     elseif config.main.recolor then
-        sampAddChatMessage(badcolor ..'[Ошибка] {FFFFFF}Этот дом уже кем то куплен!', -1)
+        sampAddChatMessage(badcolor ..'[ГЋГёГЁГЎГЄГ ] {FFFFFF}ГќГІГ®ГІ Г¤Г®Г¬ ГіГ¦ГҐ ГЄГҐГ¬ ГІГ® ГЄГіГЇГ«ГҐГ­!', -1)
         return false
     end
   end
-  if text:find('Этот бизнес уже кем то куплен') and (color == -10270721 or color == -1347440641) then
+  if text:find('ГќГІГ®ГІ ГЎГЁГ§Г­ГҐГ± ГіГ¦ГҐ ГЄГҐГ¬ ГІГ® ГЄГіГЇГ«ГҐГ­') and (color == -10270721 or color == -1347440641) then
     if config.main.recolor and config.main.jt and time ~= nil then
-        sampAddChatMessage(string.format(badcolor ..'[Ошибка] {FFFFFF}Этот бизнес уже кем то куплен! [%.3f]', time), -1)
+        sampAddChatMessage(string.format(badcolor ..'[ГЋГёГЁГЎГЄГ ] {FFFFFF}ГќГІГ®ГІ ГЎГЁГ§Г­ГҐГ± ГіГ¦ГҐ ГЄГҐГ¬ ГІГ® ГЄГіГЇГ«ГҐГ­! [%.3f]', time), -1)
         return false
     elseif config.main.jt and time ~= nil then
-        sampAddChatMessage(string.format('{FF6347}[Ошибка] {FFFFFF}Этот бизнес уже кем то куплен! [%.3f]', time), -1)
+        sampAddChatMessage(string.format('{FF6347}[ГЋГёГЁГЎГЄГ ] {FFFFFF}ГќГІГ®ГІ ГЎГЁГ§Г­ГҐГ± ГіГ¦ГҐ ГЄГҐГ¬ ГІГ® ГЄГіГЇГ«ГҐГ­! [%.3f]', time), -1)
         return false
     elseif config.main.recolor then
-        sampAddChatMessage(badcolor ..'[Ошибка] {FFFFFF}Этот бизнес уже кем то куплен!', -1)
+        sampAddChatMessage(badcolor ..'[ГЋГёГЁГЎГЄГ ] {FFFFFF}ГќГІГ®ГІ ГЎГЁГ§Г­ГҐГ± ГіГ¦ГҐ ГЄГҐГ¬ ГІГ® ГЄГіГЇГ«ГҐГ­!', -1)
         return false
     end
   end
-  if text:find('Не флуди!') and color == -10270721 then
+  if text:find('ГЌГҐ ГґГ«ГіГ¤ГЁ!') and color == -10270721 then
     if config.main.recolor then
-        sampAddChatMessage(badcolor ..'[Ошибка] {FFFFFF}Не флуди!', -1)
+        sampAddChatMessage(badcolor ..'[ГЋГёГЁГЎГЄГ ] {FFFFFF}ГЌГҐ ГґГ«ГіГ¤ГЁ!', -1)
         return false
     end
   end
-  if text:find('Вы успешно ввели капчу за') and (color == -65281 or color == 1941201407) then
+  if text:find('Г‚Г» ГіГ±ГЇГҐГёГ­Г® ГўГўГҐГ«ГЁ ГЄГ ГЇГ·Гі Г§Г ') and (color == -65281 or color == 1941201407) then
     config.captcha.vcode = config.captcha.vcode + 1
     if time < config.captcha.record or config.captcha.record == 0 then
         config.captcha.record = floorStep(time, 0.001)
-        if config.messages.chat then msg('Новый рекорд ввода капчи: '..goodcolor..''..config.captcha.record..' {ffffff}сек!', "chat") elseif config.messages.console then msg('Новый рекорд ввода капчи: '..goodcolor..''..config.captcha.record..' {ffffff}сек!', "console") elseif config.messages.silent then end
+        if config.messages.chat then msg('ГЌГ®ГўГ»Г© Г°ГҐГЄГ®Г°Г¤ ГўГўГ®Г¤Г  ГЄГ ГЇГ·ГЁ: '..goodcolor..''..config.captcha.record..' {ffffff}Г±ГҐГЄ!', "chat") elseif config.messages.console then msg('ГЌГ®ГўГ»Г© Г°ГҐГЄГ®Г°Г¤ ГўГўГ®Г¤Г  ГЄГ ГЇГ·ГЁ: '..goodcolor..''..config.captcha.record..' {ffffff}Г±ГҐГЄ!', "console") elseif config.messages.silent then end
     end
     if config.main.recolor then
-        sampAddChatMessage(string.format(goodcolor ..'[Информация] {FFFFFF}Вы успешно ввели капчу в тренинге! [%.3f]', time), -1)
+        sampAddChatMessage(string.format(goodcolor ..'[Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї] {FFFFFF}Г‚Г» ГіГ±ГЇГҐГёГ­Г® ГўГўГҐГ«ГЁ ГЄГ ГЇГ·Гі Гў ГІГ°ГҐГ­ГЁГ­ГЈГҐ! [%.3f]', time), -1)
         return false
     end
   end
-  if text:find('Вы продали ваш бизнес') and color == 1941201407 then
+  if text:find('Г‚Г» ГЇГ°Г®Г¤Г Г«ГЁ ГўГ Гё ГЎГЁГ§Г­ГҐГ±') and color == 1941201407 then
     if config.main.recolor then
-        sampAddChatMessage(goodcolor ..'[Информация] {FFFFFF}Вы продали ваш бизнес!', -1)
+        sampAddChatMessage(goodcolor ..'[Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї] {FFFFFF}Г‚Г» ГЇГ°Г®Г¤Г Г«ГЁ ГўГ Гё ГЎГЁГ§Г­ГҐГ±!', -1)
         return false
     end
   end
-  if text:find('Вы продали ваш дом') and color == 1941201407 then
+  if text:find('Г‚Г» ГЇГ°Г®Г¤Г Г«ГЁ ГўГ Гё Г¤Г®Г¬') and color == 1941201407 then
     if config.main.recolor then
-        sampAddChatMessage(goodcolor ..'[Информация] {FFFFFF}Вы продали ваш дом!', -1)
+        sampAddChatMessage(goodcolor ..'[Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї] {FFFFFF}Г‚Г» ГЇГ°Г®Г¤Г Г«ГЁ ГўГ Гё Г¤Г®Г¬!', -1)
         return false
     end
   end
-  if text:find('Этот дом только недавно слетел, он будет доступен для покупки в течении 3 часов.') and color == -10270721 then
+  if text:find('ГќГІГ®ГІ Г¤Г®Г¬ ГІГ®Г«ГјГЄГ® Г­ГҐГ¤Г ГўГ­Г® Г±Г«ГҐГІГҐГ«, Г®Г­ ГЎГіГ¤ГҐГІ Г¤Г®Г±ГІГіГЇГҐГ­ Г¤Г«Гї ГЇГ®ГЄГіГЇГЄГЁ Гў ГІГҐГ·ГҐГ­ГЁГЁ 3 Г·Г Г±Г®Гў.') and color == -10270721 then
     if config.main.recolor then
-        sampAddChatMessage(badcolor ..'[Ошибка] {FFFFFF}Этот дом только недавно слетел, он будет доступен для покупки в течении 3 часов.', -1)
+        sampAddChatMessage(badcolor ..'[ГЋГёГЁГЎГЄГ ] {FFFFFF}ГќГІГ®ГІ Г¤Г®Г¬ ГІГ®Г«ГјГЄГ® Г­ГҐГ¤Г ГўГ­Г® Г±Г«ГҐГІГҐГ«, Г®Г­ ГЎГіГ¤ГҐГІ Г¤Г®Г±ГІГіГЇГҐГ­ Г¤Г«Гї ГЇГ®ГЄГіГЇГЄГЁ Гў ГІГҐГ·ГҐГ­ГЁГЁ 3 Г·Г Г±Г®Гў.', -1)
         return false
     end
   end
-  if text:find('Этот бизнес только недавно слетел, он будет доступен для покупки в течении 3 часов.') and color == -10270721 then
+  if text:find('ГќГІГ®ГІ ГЎГЁГ§Г­ГҐГ± ГІГ®Г«ГјГЄГ® Г­ГҐГ¤Г ГўГ­Г® Г±Г«ГҐГІГҐГ«, Г®Г­ ГЎГіГ¤ГҐГІ Г¤Г®Г±ГІГіГЇГҐГ­ Г¤Г«Гї ГЇГ®ГЄГіГЇГЄГЁ Гў ГІГҐГ·ГҐГ­ГЁГЁ 3 Г·Г Г±Г®Гў.') and color == -10270721 then
     if config.main.recolor then
-        sampAddChatMessage(badcolor ..'[Ошибка] {FFFFFF}Этот дом только недавно слетел, он будет доступен для покупки в течении 3 часов.', -1)
+        sampAddChatMessage(badcolor ..'[ГЋГёГЁГЎГЄГ ] {FFFFFF}ГќГІГ®ГІ Г¤Г®Г¬ ГІГ®Г«ГјГЄГ® Г­ГҐГ¤Г ГўГ­Г® Г±Г«ГҐГІГҐГ«, Г®Г­ ГЎГіГ¤ГҐГІ Г¤Г®Г±ГІГіГЇГҐГ­ Г¤Г«Гї ГЇГ®ГЄГіГЇГЄГЁ Гў ГІГҐГ·ГҐГ­ГЁГЁ 3 Г·Г Г±Г®Гў.', -1)
         return false
     end
   end
-  if text:find('Капча введена верно!') and color == 1941201407 then
+  if text:find('ГЉГ ГЇГ·Г  ГўГўГҐГ¤ГҐГ­Г  ГўГҐГ°Г­Г®!') and color == 1941201407 then
     if config.main.recolor then
-        sampAddChatMessage(goodcolor ..'[Информация] {FFFFFF}Капча введена верно!', -1)
+        sampAddChatMessage(goodcolor ..'[Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї] {FFFFFF}ГЉГ ГЇГ·Г  ГўГўГҐГ¤ГҐГ­Г  ГўГҐГ°Г­Г®!', -1)
         return false
     end
   end
@@ -2539,4 +2539,4 @@ end
 --61 20 73 69 6d 61 6b 20 6c 6f 78
 --69 64 69 20 6e 61 78 79 69 20
 
---л эфшлц чъб
+--Г« ГЅГґГёГ«Г¶ Г·ГєГЎ
